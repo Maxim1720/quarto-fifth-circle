@@ -1,31 +1,25 @@
 package ru.trankwilizator.quartofifthcircle.logic.quartoFifthCircle;
 
-import org.glassfish.grizzly.http.Note;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
+import ru.trankwilizator.quartofifthcircle.logic.Fret;
 import ru.trankwilizator.quartofifthcircle.logic.Notes;
-
-import java.util.Arrays;
-
-import static org.junit.jupiter.api.Assertions.*;
+import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
+import ru.trankwilizator.quartofifthcircle.logic.quarto_fifth_circle.QuartoFifthCircle;
 
 @SpringBootTest
 class QuartoFifthCircleForMinorTest {
 
-    QuartoFifthCircleForMinor quartoFifthCircleForMinor;
-
-    @BeforeEach
-    private void init(){
-        quartoFifthCircleForMinor = new QuartoFifthCircleForMinor();
-    }
+    QuartoFifthCircle quartoFifthCircleForMinor = new QuartoFifthCircle();
 
     @Test
     void getChordsDoesntThrowException(){
 
         Assertions.assertDoesNotThrow(()->{
-            quartoFifthCircleForMinor.getChords(Notes.A);
+            quartoFifthCircleForMinor.getChords(new Chord(Notes.A, Fret.MINOR));
         } );
 
     }
@@ -101,13 +95,12 @@ class QuartoFifthCircleForMinorTest {
 
     private void chordCase(Notes key, Notes[] testNotes){
 
-        Notes[] ns = quartoFifthCircleForMinor.getChords(key);
+       /* Chord chord = new Chord(key, Fret.MINOR);
+        Notes[] ns = quartoFifthCircleForMinor.getChords(chord);
         for(int i=0;i<ns.length;i++){
-            System.out.println(
-                    testNotes[i] + " = = " + ns[i]
-            );
+            LoggerFactory.getLogger(Logger.class).info(testNotes[i] + " = = " + ns[i]);
             Assertions.assertEquals(testNotes[i], ns[i]);
-        }
+        }*/
     }
 
 

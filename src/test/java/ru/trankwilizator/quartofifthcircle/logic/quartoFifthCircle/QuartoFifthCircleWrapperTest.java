@@ -2,8 +2,10 @@ package ru.trankwilizator.quartofifthcircle.logic.quartoFifthCircle;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import ru.trankwilizator.quartofifthcircle.logic.quarto_fifth_circle.QuartoFifthCircleWrapper;
 
 import java.util.Arrays;
 
@@ -13,6 +15,9 @@ class QuartoFifthCircleWrapperTest {
 
     @Autowired
     QuartoFifthCircleWrapper quartoFifthCircleWrapper;
+
+    @Autowired
+    Logger logger;
 
 
     @Test
@@ -51,15 +56,6 @@ class QuartoFifthCircleWrapperTest {
     @Test
     void testCaseAdm(){
 
-
-        /*Notes[] notes = new Notes[]{
-                Notes.Cd,
-                Notes.Fd,
-                Notes.Gd,
-                Notes.F,
-                Notes.Dd
-        };
-        System.out.println("A#m");*/
         String[] chords = new String[]{
                 "C#",
                 "F#",
@@ -76,30 +72,30 @@ class QuartoFifthCircleWrapperTest {
 
         Assertions.assertDoesNotThrow(
                 ()->{
-                    System.out.println(Arrays.toString(quartoFifthCircleWrapper.getChords("Am")));
-                    System.out.println(Arrays.toString(quartoFifthCircleWrapper.getChords("A#m")));
-                    System.out.println(Arrays.toString(quartoFifthCircleWrapper.getChords("Bm")));
-                    System.out.println(Arrays.toString(quartoFifthCircleWrapper.getChords("Cm")));
-                    System.out.println(Arrays.toString(quartoFifthCircleWrapper.getChords("C#m")));
-                    System.out.println(Arrays.toString(quartoFifthCircleWrapper.getChords("Dm")));
-                    System.out.println(Arrays.toString(quartoFifthCircleWrapper.getChords("D#m")));
-                    System.out.println(Arrays.toString(quartoFifthCircleWrapper.getChords("Em")));
-                    System.out.println(Arrays.toString(quartoFifthCircleWrapper.getChords("Fm")));
-                    System.out.println(Arrays.toString(quartoFifthCircleWrapper.getChords("F#m")));
-                    System.out.println(Arrays.toString(quartoFifthCircleWrapper.getChords("Gm")));
-                    System.out.println(Arrays.toString(quartoFifthCircleWrapper.getChords("G#m")));
-                    System.out.println(Arrays.toString(quartoFifthCircleWrapper.getChords("A")));
-                    System.out.println(Arrays.toString(quartoFifthCircleWrapper.getChords("A#")));
-                    System.out.println(Arrays.toString(quartoFifthCircleWrapper.getChords("B")));
-                    System.out.println(Arrays.toString(quartoFifthCircleWrapper.getChords("C")));
-                    System.out.println(Arrays.toString(quartoFifthCircleWrapper.getChords("C#")));
-                    System.out.println(Arrays.toString(quartoFifthCircleWrapper.getChords("D")));
-                    System.out.println(Arrays.toString(quartoFifthCircleWrapper.getChords("D#")));
-                    System.out.println(Arrays.toString(quartoFifthCircleWrapper.getChords("E")));
-                    System.out.println(Arrays.toString(quartoFifthCircleWrapper.getChords("F")));
-                    System.out.println(Arrays.toString(quartoFifthCircleWrapper.getChords("F#")));
-                    System.out.println(Arrays.toString(quartoFifthCircleWrapper.getChords("G")));
-                    System.out.println(Arrays.toString(quartoFifthCircleWrapper.getChords("G#")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("Am")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("A#m")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("Bm")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("Cm")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("C#m")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("Dm")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("D#m")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("Em")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("Fm")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("F#m")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("Gm")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("G#m")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("A")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("A#")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("B")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("C")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("C#")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("D")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("D#")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("E")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("F")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("F#")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("G")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("G#")));
                 }
         );
 

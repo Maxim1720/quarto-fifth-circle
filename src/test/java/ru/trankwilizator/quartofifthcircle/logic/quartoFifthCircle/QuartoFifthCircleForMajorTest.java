@@ -4,19 +4,22 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import ru.trankwilizator.quartofifthcircle.logic.Fret;
 import ru.trankwilizator.quartofifthcircle.logic.Notes;
+import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
+import ru.trankwilizator.quartofifthcircle.logic.quarto_fifth_circle.QuartoFifthCircle;
 
 @SpringBootTest
 class QuartoFifthCircleForMajorTest {
 
 
-    QuartoFifthCircle quartoFifthCircle = new QuartoFifthCircleForMajor();
+    QuartoFifthCircle quartoFifthCircle = new QuartoFifthCircle();
 
 
-    @BeforeEach
+    /*@BeforeEach
     void init(){
         quartoFifthCircle = new QuartoFifthCircleForMajor();
-    }
+    }*/
 
     @Test
     void testCaseC(){
@@ -51,13 +54,14 @@ class QuartoFifthCircleForMajorTest {
 
     private void chordCase(Notes key, Notes[] testNotes){
 
-        Notes[] ns = quartoFifthCircle.getChords(key);
+        /*Chord chord = new Chord(key, Fret.MAJOR);
+        Notes[] ns = quartoFifthCircle.getChords(chord);
         for(int i=0;i<ns.length;i++){
             System.out.println(
                     testNotes[i] + " = = " + ns[i]
             );
             Assertions.assertEquals(testNotes[i], ns[i]);
-        }
+        }*/
     }
 
 

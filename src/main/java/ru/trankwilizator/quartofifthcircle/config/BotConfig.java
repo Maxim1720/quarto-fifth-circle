@@ -18,8 +18,6 @@ import ru.trankwilizator.quartofifthcircle.bot.SpringTelegramBot;
 public class BotConfig {
 
     private final TelegramConfig telegramConfig;
-
-
     @Bean
     public SetWebhook setWebhookInstance(){
         return SetWebhook.builder().url(telegramConfig.getWebhookPath()).build();
