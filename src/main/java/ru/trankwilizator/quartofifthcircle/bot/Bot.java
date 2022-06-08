@@ -1,6 +1,7 @@
 package ru.trankwilizator.quartofifthcircle.bot;
 
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -15,44 +16,14 @@ import ru.trankwilizator.quartofifthcircle.service.QuartoFifthCircleCommand;
 @Component
 public class Bot extends TelegramLongPollingBot {
 
-
     private final QuartoFifthCircleCommand quartoFifthCircleCommand;
     private final BotMessageHandler botMessageHandler;
-
-    @Autowired
-    private Logger logger;
-
-    @Autowired
-    public Bot(QuartoFifthCircleCommand quartoFifthCircleCommand, BotMessageHandler botMessageHandler){
-        this.quartoFifthCircleCommand = quartoFifthCircleCommand;
-        this.botMessageHandler = botMessageHandler;
-    }
 
     @Value("${telegram.bot.username}")
     private String BOT_NAME;
 
     @Value("${telegram.bot.token}")
     private String BOT_TOKEN;
-
-
-    @Override
-    public void onUpdateReceived(Update update) {
-        SendMessage sendMessage = botMessageHandler.sendMessageAnswer(update.getMessage());
-        sendMessage.setChatId(String.valueOf(update.getMessage().getChatId()));
-        tryExecute(sendMessage);
-    }
-
-    private void tryExecute(SendMessage sendMessage){
-        try {
-            execute(sendMessage);
-            logger.info("sent message: " + sendMessage.getText());
-        } catch (TelegramApiException e) {
-            logger.error(e.getMessage(), e);
-        }
-
-    }
-
-
     @Override
     public String getBotToken() {
         return BOT_TOKEN;
@@ -62,4 +33,36 @@ public class Bot extends TelegramLongPollingBot {
     public String getBotUsername() {
         return BOT_NAME;
     }
+
+
+    @Autowired
+    public Bot(QuartoFifthCircleCommand quartoFifthCircleCommand, BotMessageHandler botMessageHandler){
+        this.quartoFifthCircleCommand = quartoFifthCircleCommand;
+        this.botMessageHandler = botMessageHandler;
+    }
+
+
+
+
+    @Override
+    public void onUpdateReceived(Update update) {
+        SendMessage sendMessage = botMessageHandler.sendMessageAnswer(update.getMessage());
+        sendMessage.setChatId(String.valueOf(update.getMessage().getChatId()));
+        tryExecute(sendMessage);
+    }
+
+
+
+    private void tryExecute(SendMessage sendMessage){
+        try {
+            execute(sendMessage);
+            LoggerFactory.getLogger(Logger.class).info("sent message: " + sendMessage.getText());
+        } catch (TelegramApiException e) {
+            LoggerFactory.getLogger(Logger.class).error(e.getMessage(), e);
+        }
+
+    }
+
+
+
 }
