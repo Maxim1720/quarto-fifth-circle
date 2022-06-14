@@ -14,7 +14,7 @@ import ru.trankwilizator.quartofifthcircle.service.BotMessageHandler;
 import ru.trankwilizator.quartofifthcircle.service.QuartoFifthCircleCommand;
 
 @Component
-public class Bot extends TelegramLongPollingBot {
+public class Bot extends TelegramLongPollingCommandBot {
 
     private final QuartoFifthCircleCommand quartoFifthCircleCommand;
     private final BotMessageHandler botMessageHandler;
