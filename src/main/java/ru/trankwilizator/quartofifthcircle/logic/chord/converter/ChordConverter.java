@@ -2,8 +2,8 @@ package ru.trankwilizator.quartofifthcircle.logic.chord.converter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.trankwilizator.quartofifthcircle.logic.Fret;
-import ru.trankwilizator.quartofifthcircle.logic.Notes;
+import ru.trankwilizator.quartofifthcircle.command.util.Fret;
+import ru.trankwilizator.quartofifthcircle.command.util.Notes;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
 import ru.trankwilizator.quartofifthcircle.logic.chord.validator.ChordValidator;
 
@@ -14,9 +14,7 @@ public class ChordConverter {
         chordValidator = new ChordValidator();
     }
 
-    public String convertToStr(Chord chord){
-        return chord.toString();
-    }
+
 
     public Chord convertToChord(String chord){
 
@@ -28,7 +26,7 @@ public class ChordConverter {
             fret = Fret.MINOR;
             substringEnd =  chord.indexOf("m");
         }
-        chordValidator.validate(chord);
+        //chordValidator.validate(chord);
         String keyNote = chord.substring(0, substringEnd);
         Notes note = convertStrToNote(keyNote);
         return new Chord(note,fret);
