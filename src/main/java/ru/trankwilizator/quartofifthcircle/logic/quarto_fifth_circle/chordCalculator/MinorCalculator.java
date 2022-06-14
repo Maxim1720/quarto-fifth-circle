@@ -1,6 +1,6 @@
 package ru.trankwilizator.quartofifthcircle.logic.quarto_fifth_circle.chordCalculator;
 
-import ru.trankwilizator.quartofifthcircle.logic.Fret;
+import ru.trankwilizator.quartofifthcircle.command.util.Fret;
 import ru.trankwilizator.quartofifthcircle.logic.chord.ChordCreatorFromPosition;
 
 public final class MinorCalculator extends Calculator {

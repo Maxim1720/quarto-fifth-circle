@@ -3,6 +3,5 @@ package ru.trankwilizator.quartofifthcircle.logic.quarto_fifth_circle.chordCalcu
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
 
 public interface ChordCalculator {
-    int[] calculatePositions(int keyPosition);
     Chord[] calculateChords(int keyPosition);
 }
