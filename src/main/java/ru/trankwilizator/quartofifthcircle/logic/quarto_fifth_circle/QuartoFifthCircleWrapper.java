@@ -9,14 +9,12 @@ import ru.trankwilizator.quartofifthcircle.logic.chord.converter.ChordConverter;
 
 import java.util.Arrays;
 
-@Component
 public class QuartoFifthCircleWrapper implements ChordsGetter<String> {
 
     private final QuartoFifthCircle quartoFifthCircle;
 
-    @Autowired
-    public QuartoFifthCircleWrapper(QuartoFifthCircle quartoFifthCircle){
-        this.quartoFifthCircle = quartoFifthCircle;
+    public QuartoFifthCircleWrapper(){
+        this.quartoFifthCircle = new QuartoFifthCircle();
     }
 
     @Override
