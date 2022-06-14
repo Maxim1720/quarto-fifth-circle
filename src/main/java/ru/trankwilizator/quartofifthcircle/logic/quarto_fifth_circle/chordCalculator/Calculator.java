@@ -9,8 +9,8 @@ public abstract class Calculator implements ChordCalculator {
     protected int keyPosition;
 
     public Calculator(){
-        positions = new int[5];
-        chords = new Chord[5];
+        positions = new int[QUARTO_FIFTH_CHORDS_COUNT_WITHOUT_TONIC];
+        chords = new Chord[QUARTO_FIFTH_CHORDS_COUNT_WITHOUT_TONIC];
     }
 
     @Override
