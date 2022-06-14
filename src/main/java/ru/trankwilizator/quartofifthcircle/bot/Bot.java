@@ -13,7 +13,6 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import ru.trankwilizator.quartofifthcircle.bot.message.BotMessagesHandler;
 import ru.trankwilizator.quartofifthcircle.command.NotCommand;
-import ru.trankwilizator.quartofifthcircle.bot.message.BotMessageHandlerImpl;
 import ru.trankwilizator.quartofifthcircle.exception.MessageHandlerException;
 
 @Component
@@ -56,7 +55,7 @@ public class Bot extends TelegramLongPollingCommandBot {
     private SendMessage tryGetAnswer(Message message){
         SendMessage sendMessage;
         try {
-            sendMessage = botMessageHandler.getSendMessageAnswer(message);
+            sendMessage = botMessageHandler.getAnswer(message);
         } catch (MessageHandlerException e) {
             sendMessage = new SendMessage();
             sendMessage.setText("Please, send command for starting!!! :3");
