@@ -15,15 +15,23 @@ import ru.trankwilizator.quartofifthcircle.service.QuartoFifthCircleCommand;
 
 @Component
 public class Bot extends TelegramLongPollingCommandBot {
-
-    private final QuartoFifthCircleCommand quartoFifthCircleCommand;
-    private final BotMessageHandler botMessageHandler;
+    private final BotMessagesHandler botMessageHandler;
 
     @Value("${telegram.bot.username}")
     private String BOT_NAME;
 
     @Value("${telegram.bot.token}")
     private String BOT_TOKEN;
+
+    @Autowired
+    public Bot(BotMessagesHandler botMessageHandler,
+               IBotCommand[] commands){
+        this.botMessageHandler = botMessageHandler;
+        registerAll(commands);
+        registerDefaultAction(new NotCommand());
+    }
+
+
     @Override
     public String getBotToken() {
         return BOT_TOKEN;
@@ -34,19 +42,9 @@ public class Bot extends TelegramLongPollingCommandBot {
         return BOT_NAME;
     }
 
-
-    @Autowired
-    public Bot(QuartoFifthCircleCommand quartoFifthCircleCommand, BotMessageHandler botMessageHandler){
-        this.quartoFifthCircleCommand = quartoFifthCircleCommand;
-        this.botMessageHandler = botMessageHandler;
-    }
-
-
-
-
     @Override
-    public void onUpdateReceived(Update update) {
-        SendMessage sendMessage = botMessageHandler.sendMessageAnswer(update.getMessage());
+    public void processNonCommandUpdate(Update update) {
+        SendMessage sendMessage = tryGetAnswer(update.getMessage());
         sendMessage.setChatId(String.valueOf(update.getMessage().getChatId()));
         tryExecute(sendMessage);
     }
