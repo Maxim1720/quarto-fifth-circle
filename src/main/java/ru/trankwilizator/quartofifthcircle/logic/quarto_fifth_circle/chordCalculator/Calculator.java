@@ -14,15 +14,8 @@ public abstract class Calculator implements ChordCalculator {
     }
 
     @Override
-    public int[] calculatePositions(int keyPosition) {
-        this.keyPosition = keyPosition;
-        calculateMajors();
-        calculateMinors();
-        return positions;
-    }
-
-
     public Chord[] calculateChords(int keyPosition){
+        this.keyPosition = keyPosition;
         calculateMajors();
         calculateMinors();
         return chords;
