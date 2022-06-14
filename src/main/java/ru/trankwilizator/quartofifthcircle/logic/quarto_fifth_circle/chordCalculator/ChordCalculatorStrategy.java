@@ -1,8 +1,8 @@
 package ru.trankwilizator.quartofifthcircle.logic.quarto_fifth_circle.chordCalculator;
 
-import ru.trankwilizator.quartofifthcircle.logic.Fret;
+import ru.trankwilizator.quartofifthcircle.command.util.Fret;
 
-public final class ChordCalculatorFabric {
+public final class ChordCalculatorStrategy {
 
     public static ChordCalculator INSTANCE(Fret chordFret){
 
