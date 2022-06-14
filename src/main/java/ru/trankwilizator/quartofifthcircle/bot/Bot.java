@@ -5,13 +5,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+import org.telegram.telegrambots.extensions.bots.commandbot.TelegramLongPollingCommandBot;
+import org.telegram.telegrambots.extensions.bots.commandbot.commands.IBotCommand;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-import ru.trankwilizator.quartofifthcircle.logic.exception.ChordException;
-import ru.trankwilizator.quartofifthcircle.service.BotMessageHandler;
-import ru.trankwilizator.quartofifthcircle.service.QuartoFifthCircleCommand;
+import ru.trankwilizator.quartofifthcircle.bot.message.BotMessagesHandler;
+import ru.trankwilizator.quartofifthcircle.command.NotCommand;
+import ru.trankwilizator.quartofifthcircle.bot.message.BotMessageHandlerImpl;
+import ru.trankwilizator.quartofifthcircle.exception.MessageHandlerException;
 
 @Component
 public class Bot extends TelegramLongPollingCommandBot {
