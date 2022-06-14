@@ -50,6 +50,16 @@ public class Bot extends TelegramLongPollingCommandBot {
     }
 
 
+    private SendMessage tryGetAnswer(Message message){
+        SendMessage sendMessage;
+        try {
+            sendMessage = botMessageHandler.getSendMessageAnswer(message);
+        } catch (MessageHandlerException e) {
+            sendMessage = new SendMessage();
+            sendMessage.setText("Please, send command for starting!!! :3");
+        }
+        return sendMessage;
+    }
 
     private void tryExecute(SendMessage sendMessage){
         try {
