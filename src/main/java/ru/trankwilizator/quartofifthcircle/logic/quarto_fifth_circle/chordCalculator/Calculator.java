@@ -3,6 +3,11 @@ package ru.trankwilizator.quartofifthcircle.logic.quarto_fifth_circle.chordCalcu
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
 
 public abstract class Calculator implements ChordCalculator {
+    private final int QUARTO_FIFTH_CHORDS_COUNT_WITHOUT_TONIC = 5;
+
+    protected final int INTERVAL_QUARTO = 5;
+    protected final int INTERVAL_MINOR_THIRD = 3;
+
 
     protected final Chord[] chords;
     protected final int[] positions;
