@@ -6,7 +6,7 @@ import ru.trankwilizator.quartofifthcircle.logic.chord.converter.ChordConverterI
 
 public class ScaleStringWrapper {
     public String[] getNotesAsStrings(String chord) {
-        Chord tonicChord = new ChordConverter().convertToChord(chord);
+        Chord tonicChord = new ChordConverterImpl().convertToChord(chord);
         Notes[] notes = new Scale().getNotes(tonicChord);
         String[] strs = new String[notes.length];
         for (int i = 0; i < notes.length; i++) {
