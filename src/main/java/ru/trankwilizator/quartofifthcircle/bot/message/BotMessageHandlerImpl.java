@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import ru.trankwilizator.quartofifthcircle.command.message.CommandMessageHandlerMediator;
-import ru.trankwilizator.quartofifthcircle.command.message.MessageHandler;
+import ru.trankwilizator.quartofifthcircle.command.message.CommandMessageHandler;
 import ru.trankwilizator.quartofifthcircle.exception.ChordException;
 import ru.trankwilizator.quartofifthcircle.command.message.MessageHandleMode;
 import ru.trankwilizator.quartofifthcircle.exception.MessageHandlerException;
@@ -24,7 +24,7 @@ public class BotMessageHandlerImpl implements BotMessagesHandler{
 
     public SendMessage getAnswer(Message message) throws MessageHandlerException{
         SendMessage sendMessage = new SendMessage();
-        MessageHandler usersMessagesHandler = validateOrGetMessageHandler();
+        CommandMessageHandler usersMessagesHandler = validateAndGetMessageHandler();
 
         try {
             validateMessageOnIsText(message);
@@ -38,8 +38,8 @@ public class BotMessageHandlerImpl implements BotMessagesHandler{
 
     }
 
-    private MessageHandler validateOrGetMessageHandler(){
-        MessageHandler messageHandler = CommandMessageHandlerMediator.getMessageHandler();
+    private CommandMessageHandler validateAndGetMessageHandler(){
+        CommandMessageHandler messageHandler = CommandMessageHandlerMediator.getMessageHandler();
         if(messageHandler == null)
             throw new MessageHandlerException("Message handler is null");
         return messageHandler;
