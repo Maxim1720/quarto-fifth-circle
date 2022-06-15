@@ -2,25 +2,17 @@ package ru.trankwilizator.quartofifthcircle.bot.message;
 
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import ru.trankwilizator.quartofifthcircle.command.message.CommandMessageHandlerMediator;
 import ru.trankwilizator.quartofifthcircle.command.message.CommandMessageHandler;
 import ru.trankwilizator.quartofifthcircle.exception.ChordException;
-import ru.trankwilizator.quartofifthcircle.command.message.MessageHandleMode;
 import ru.trankwilizator.quartofifthcircle.exception.MessageHandlerException;
 
 @Service
 @FieldDefaults( level = AccessLevel.PRIVATE)
 public class BotMessageHandlerImpl implements BotMessagesHandler{
-
-    private MessageHandleMode mode;
-
-    @Autowired
-    public BotMessageHandlerImpl() {
-    }
 
     public SendMessage getAnswer(Message message) throws MessageHandlerException{
         SendMessage sendMessage = new SendMessage();
