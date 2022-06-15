@@ -35,5 +35,5 @@ public abstract class AbsCommand implements IBotCommand {
     }
     protected abstract String getAnswerOnCommand();
 
-    protected abstract MessageHandler getCommandMessageHandler();
+    protected abstract CommandMessageHandler getCommandMessageHandler();
 }
