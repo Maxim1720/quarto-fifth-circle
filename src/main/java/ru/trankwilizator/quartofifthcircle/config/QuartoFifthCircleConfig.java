@@ -9,7 +9,7 @@ public class QuartoFifthCircleConfig {
 
 
     @Bean
-    QuartoFifthCircle quartoFifthCircle(){
+    public QuartoFifthCircle quartoFifthCircle(){
         return new QuartoFifthCircle();
     }
 
