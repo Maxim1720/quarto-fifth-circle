@@ -11,15 +11,16 @@ import java.util.Arrays;
 public class QuartoFifthCircleWrapper implements ChordsGetter<String> {
 
     private final QuartoFifthCircle quartoFifthCircle;
+    private final ChordConverter chordConverter;
 
     public QuartoFifthCircleWrapper(){
         this.quartoFifthCircle = new QuartoFifthCircle();
+        chordConverter = new ChordConverterImpl();
     }
 
     @Override
     public String[] getChords(String keyChord) throws IllegalArgumentException {
-
-        Chord chord = new ChordConverter().convertToChord(keyChord);
+        Chord chord = chordConverter.convertToChord(keyChord);
         Chord[] chords = quartoFifthCircle.getChords(chord);
 
         String[] res = receiveStrChords(chords);
