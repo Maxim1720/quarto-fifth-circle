@@ -1,8 +1,6 @@
 package ru.trankwilizator.quartofifthcircle.logic.quarto_fifth_circle;
 
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import ru.trankwilizator.quartofifthcircle.logic.ChordsGetter;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
 import ru.trankwilizator.quartofifthcircle.logic.chord.converter.ChordConverter;
