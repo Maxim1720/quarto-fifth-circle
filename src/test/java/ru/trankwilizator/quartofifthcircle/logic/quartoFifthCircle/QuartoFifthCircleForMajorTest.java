@@ -1,15 +1,11 @@
 package ru.trankwilizator.quartofifthcircle.logic.quartoFifthCircle;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import ru.trankwilizator.quartofifthcircle.logic.Fret;
-import ru.trankwilizator.quartofifthcircle.logic.Notes;
-import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
+import ru.trankwilizator.quartofifthcircle.command.util.Notes;
 import ru.trankwilizator.quartofifthcircle.logic.quarto_fifth_circle.QuartoFifthCircle;
 
-@SpringBootTest
+
 class QuartoFifthCircleForMajorTest {
 
 

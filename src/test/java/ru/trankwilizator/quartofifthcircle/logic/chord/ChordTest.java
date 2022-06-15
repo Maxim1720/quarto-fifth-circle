@@ -2,10 +2,8 @@ package ru.trankwilizator.quartofifthcircle.logic.chord;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import ru.trankwilizator.quartofifthcircle.logic.Fret;
-import ru.trankwilizator.quartofifthcircle.logic.Notes;
-
-import static org.junit.jupiter.api.Assertions.*;
+import ru.trankwilizator.quartofifthcircle.command.util.Fret;
+import ru.trankwilizator.quartofifthcircle.command.util.Notes;
 
 class ChordTest {
 

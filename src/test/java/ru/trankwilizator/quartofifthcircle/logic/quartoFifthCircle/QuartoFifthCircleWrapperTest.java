@@ -2,22 +2,24 @@ package ru.trankwilizator.quartofifthcircle.logic.quartoFifthCircle;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import ru.trankwilizator.quartofifthcircle.logic.quarto_fifth_circle.QuartoFifthCircleWrapper;
 
 import java.util.Arrays;
 
 
-@SpringBootTest
 class QuartoFifthCircleWrapperTest {
 
-    @Autowired
-    QuartoFifthCircleWrapper quartoFifthCircleWrapper;
 
-    @Autowired
-    Logger logger;
+    QuartoFifthCircleWrapper quartoFifthCircleWrapper = new QuartoFifthCircleWrapper();
+    Logger logger = Mockito.mock(Logger.class);
 
 
     @Test

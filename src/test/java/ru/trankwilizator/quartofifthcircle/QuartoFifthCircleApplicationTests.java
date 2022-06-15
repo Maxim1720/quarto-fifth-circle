@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 
-@SpringBootTest
+
 class QuartoFifthCircleApplicationTests {
 
     @Test
@@ -25,7 +25,7 @@ class QuartoFifthCircleApplicationTests {
         check(chordsStr, chords);
     }
 
-    @Test
+    //@Test
     void testChordsCalculationCm(){
 
         String[] testChords = new String[]{
