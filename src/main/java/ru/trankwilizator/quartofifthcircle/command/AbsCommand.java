@@ -7,7 +7,7 @@ import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.bots.AbsSender;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import ru.trankwilizator.quartofifthcircle.command.message.CommandMessageHandlerMediator;
-import ru.trankwilizator.quartofifthcircle.command.message.MessageHandler;
+import ru.trankwilizator.quartofifthcircle.command.message.CommandMessageHandler;
 
 import java.util.Arrays;
 

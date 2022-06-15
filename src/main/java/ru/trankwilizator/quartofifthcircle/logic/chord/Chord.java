@@ -1,8 +1,8 @@
 package ru.trankwilizator.quartofifthcircle.logic.chord;
 
 import lombok.Getter;
-import ru.trankwilizator.quartofifthcircle.logic.Fret;
-import ru.trankwilizator.quartofifthcircle.logic.Notes;
+import ru.trankwilizator.quartofifthcircle.command.util.Fret;
+import ru.trankwilizator.quartofifthcircle.command.util.Notes;
 
 @Getter
 public class Chord {

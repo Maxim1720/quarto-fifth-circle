@@ -1,4 +1,4 @@
-package ru.trankwilizator.quartofifthcircle.logic.quarto_fifth_circle.chordCalculator;
+package ru.trankwilizator.quartofifthcircle.command.util;
 
 public class NotePositionCorrector {
     private static final int ALL_CHORDS_COUNT = 12;

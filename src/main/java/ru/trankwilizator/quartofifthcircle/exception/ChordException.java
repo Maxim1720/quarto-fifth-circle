@@ -1,4 +1,4 @@
-package ru.trankwilizator.quartofifthcircle.logic.exception;
+package ru.trankwilizator.quartofifthcircle.exception;
 
 public class ChordException extends RuntimeException{
     public ChordException(String msg){
