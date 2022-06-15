@@ -2,7 +2,7 @@ package ru.trankwilizator.quartofifthcircle.logic.scale;
 
 import ru.trankwilizator.quartofifthcircle.command.util.Notes;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
-import ru.trankwilizator.quartofifthcircle.logic.chord.converter.ChordConverter;
+import ru.trankwilizator.quartofifthcircle.logic.chord.converter.ChordConverterImpl;
 
 public class ScaleStringWrapper {
     public String[] getNotesAsStrings(String chord) {

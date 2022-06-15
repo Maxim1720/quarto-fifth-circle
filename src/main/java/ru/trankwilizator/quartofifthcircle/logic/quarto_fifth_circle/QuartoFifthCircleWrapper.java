@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import ru.trankwilizator.quartofifthcircle.logic.ChordsGetter;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
 import ru.trankwilizator.quartofifthcircle.logic.chord.converter.ChordConverter;
+import ru.trankwilizator.quartofifthcircle.logic.chord.converter.ChordConverterImpl;
 
 import java.util.Arrays;
 
