@@ -8,9 +8,8 @@ import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.extensions.bots.commandbot.TelegramLongPollingCommandBot;
 import org.telegram.telegrambots.extensions.bots.commandbot.commands.IBotCommand;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.objects.Message;
-import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+import ru.trankwilizator.quartofifthcircle.bot.log.MessagesLogger;
 import ru.trankwilizator.quartofifthcircle.bot.message.BotMessagesHandler;
 import ru.trankwilizator.quartofifthcircle.command.NotCommand;
 import ru.trankwilizator.quartofifthcircle.exception.MessageHandlerException;
@@ -46,6 +45,7 @@ public class Bot extends TelegramLongPollingCommandBot {
 
     @Override
     public void processNonCommandUpdate(Update update) {
+        MessagesLogger.logMessageRecivied(update.getMessage().getFrom());
         SendMessage sendMessage = tryGetAnswer(update.getMessage());
         sendMessage.setChatId(String.valueOf(update.getMessage().getChatId()));
         tryExecute(sendMessage);
@@ -66,11 +66,10 @@ public class Bot extends TelegramLongPollingCommandBot {
     private void tryExecute(SendMessage sendMessage){
         try {
             execute(sendMessage);
-            LoggerFactory.getLogger(Logger.class).info("sent message: " + sendMessage.getText());
         } catch (TelegramApiException e) {
-            LoggerFactory.getLogger(Logger.class).error(e.getMessage(), e);
+            MessagesLogger.logError(e);
         }
-
+        MessagesLogger.logMessageSent(sendMessage);
     }
 
 
