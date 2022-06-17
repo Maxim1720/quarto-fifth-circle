@@ -1,9 +1,17 @@
 package ru.trankwilizator.quartofifthcircle.command;
 
+import org.springframework.stereotype.Component;
 import ru.trankwilizator.quartofifthcircle.command.message.CommandMessageHandler;
-import ru.trankwilizator.quartofifthcircle.command.message.scale.ScaleMessageHandler;
+import ru.trankwilizator.quartofifthcircle.command.message.handler.scale.ScaleMessageHandler;
 
+@Component
 public class NotesInScaleCommand extends AbsCommand {
+
+    private final ScaleMessageHandler scaleMessageHandler;
+
+    public NotesInScaleCommand(ScaleMessageHandler scaleMessageHandler) {
+        this.scaleMessageHandler = scaleMessageHandler;
+    }
 
     @Override
     protected String getAnswerOnCommand() {
@@ -12,7 +20,7 @@ public class NotesInScaleCommand extends AbsCommand {
 
     @Override
     protected CommandMessageHandler getCommandMessageHandler() {
-        return new ScaleMessageHandler();
+        return scaleMessageHandler;
     }
 
     @Override
