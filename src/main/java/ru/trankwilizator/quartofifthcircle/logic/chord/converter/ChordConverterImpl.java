@@ -2,16 +2,20 @@ package ru.trankwilizator.quartofifthcircle.logic.chord.converter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import ru.trankwilizator.quartofifthcircle.command.util.Fret;
 import ru.trankwilizator.quartofifthcircle.command.util.Notes;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
-import ru.trankwilizator.quartofifthcircle.logic.chord.validator.ChordValidatorImpl;
+import ru.trankwilizator.quartofifthcircle.logic.chord.validator.ChordValidator;
 
+@Component
 public class ChordConverterImpl implements ChordConverter{
-    private final ChordValidatorImpl chordValidator;
+    private final ChordValidator chordValidator;
 
-    public ChordConverterImpl(){
-        chordValidator = new ChordValidatorImpl();
+    @Autowired
+    public ChordConverterImpl(ChordValidator chordValidator) {
+        this.chordValidator = chordValidator;
     }
 
     public Chord convertToChord(String chord){

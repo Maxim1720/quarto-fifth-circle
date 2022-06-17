@@ -1,10 +1,12 @@
 package ru.trankwilizator.quartofifthcircle.logic.chord.validator;
 
+import org.springframework.stereotype.Component;
 import ru.trankwilizator.quartofifthcircle.exception.ChordException;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@Component
 public class ChordValidatorImpl implements ChordValidator{
 
     private Matcher chordMatcher;
