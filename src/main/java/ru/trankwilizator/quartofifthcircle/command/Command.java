@@ -54,7 +54,7 @@ public abstract class Command<T> implements IBotCommand {
         if(strings.length == 0){
             throw new ChordException(MessageSourceResourceBundle
                     .getBundle("messages")
-                    .getString("bot.chord.empty"));
+                    .getString("bot.chord.error.empty"));
         }
     }
     private void tryExecuteSendMessage(AbsSender sender, SendMessage sendMessage){
