@@ -27,14 +27,14 @@ public class Bot extends TelegramLongPollingCommandBot {
     public String getBotToken() {
         return MessageSourceResourceBundle
                 .getBundle("messages")
-                .getString("bot.username");
+                .getString("bot.token");
     }
 
     @Override
     public String getBotUsername() {
         return MessageSourceResourceBundle
                 .getBundle("messages")
-                .getString("bot.token");
+                .getString("bot.username");
     }
 
     @Override
