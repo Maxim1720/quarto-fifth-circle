@@ -1,10 +1,9 @@
 package ru.trankwilizator.quartofifthcircle.logic.pentatonic;
 
-import org.glassfish.grizzly.http.Note;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import ru.trankwilizator.quartofifthcircle.command.util.Fret;
-import ru.trankwilizator.quartofifthcircle.command.util.Notes;
+import ru.trankwilizator.quartofifthcircle.util.Fret;
+import ru.trankwilizator.quartofifthcircle.util.Notes;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
 import ru.trankwilizator.quartofifthcircle.logic.scale.IScale;
 import ru.trankwilizator.quartofifthcircle.logic.scale.Scale;
