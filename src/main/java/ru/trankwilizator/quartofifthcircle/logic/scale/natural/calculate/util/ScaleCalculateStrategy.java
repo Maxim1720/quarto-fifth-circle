@@ -1,10 +1,10 @@
-package ru.trankwilizator.quartofifthcircle.logic.scale.calculate.util;
+package ru.trankwilizator.quartofifthcircle.logic.scale.natural.calculate.util;
 
 import ru.trankwilizator.quartofifthcircle.exception.ChordException;
 import ru.trankwilizator.quartofifthcircle.util.Fret;
-import ru.trankwilizator.quartofifthcircle.logic.scale.calculate.step.MajorScale;
-import ru.trankwilizator.quartofifthcircle.logic.scale.calculate.step.MinorScale;
-import ru.trankwilizator.quartofifthcircle.logic.scale.calculate.step.ScalePositioner;
+import ru.trankwilizator.quartofifthcircle.logic.scale.natural.calculate.step.MajorScale;
+import ru.trankwilizator.quartofifthcircle.logic.scale.natural.calculate.step.MinorScale;
+import ru.trankwilizator.quartofifthcircle.logic.scale.natural.calculate.step.ScalePositioner;
 
 public class ScaleCalculateStrategy {
 

@@ -1,4 +1,4 @@
-package ru.trankwilizator.quartofifthcircle.logic.scale.calculate.step;
+package ru.trankwilizator.quartofifthcircle.logic.scale.natural.calculate.step;
 
 public class MinorScale implements ScalePositioner {
 

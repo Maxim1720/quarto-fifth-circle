@@ -1,11 +1,11 @@
-package ru.trankwilizator.quartofifthcircle.logic.scale.calculate;
+package ru.trankwilizator.quartofifthcircle.logic.scale.natural.calculate;
 
 import org.springframework.stereotype.Component;
 import ru.trankwilizator.quartofifthcircle.util.NotePositionCorrector;
 import ru.trankwilizator.quartofifthcircle.util.Notes;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
-import ru.trankwilizator.quartofifthcircle.logic.scale.calculate.step.ScalePositioner;
-import ru.trankwilizator.quartofifthcircle.logic.scale.calculate.util.ScaleCalculateStrategy;
+import ru.trankwilizator.quartofifthcircle.logic.scale.natural.calculate.step.ScalePositioner;
+import ru.trankwilizator.quartofifthcircle.logic.scale.natural.calculate.util.ScaleCalculateStrategy;
 
 @Component
 public class ScaleCalculator implements IScaleCalculator {

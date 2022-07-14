@@ -1,4 +1,4 @@
-package ru.trankwilizator.quartofifthcircle.logic.scale.wrapper;
+package ru.trankwilizator.quartofifthcircle.logic.scale.natural.wrapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -7,7 +7,7 @@ import ru.trankwilizator.quartofifthcircle.util.Notes;
 import ru.trankwilizator.quartofifthcircle.logic.StrWrapper;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
 import ru.trankwilizator.quartofifthcircle.logic.chord.converter.ChordConverter;
-import ru.trankwilizator.quartofifthcircle.logic.scale.IScale;
+import ru.trankwilizator.quartofifthcircle.logic.scale.natural.IScale;
 
 @Component
 @Qualifier("notesWrapper")

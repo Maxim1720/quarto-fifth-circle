@@ -1,4 +1,4 @@
-package ru.trankwilizator.quartofifthcircle.logic.scale;
+package ru.trankwilizator.quartofifthcircle.logic.scale.natural;
 
 import ru.trankwilizator.quartofifthcircle.util.Notes;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.trankwilizator.quartofifthcircle.util.Fret;
 import ru.trankwilizator.quartofifthcircle.util.Notes;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
-import ru.trankwilizator.quartofifthcircle.logic.scale.IScale;
+import ru.trankwilizator.quartofifthcircle.logic.scale.natural.IScale;
 
 @Service
 public class Pentatonic {

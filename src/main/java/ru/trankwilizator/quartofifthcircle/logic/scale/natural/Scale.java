@@ -1,10 +1,10 @@
-package ru.trankwilizator.quartofifthcircle.logic.scale;
+package ru.trankwilizator.quartofifthcircle.logic.scale.natural;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.trankwilizator.quartofifthcircle.util.Notes;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
-import ru.trankwilizator.quartofifthcircle.logic.scale.calculate.IScaleCalculator;
+import ru.trankwilizator.quartofifthcircle.logic.scale.natural.calculate.IScaleCalculator;
 
 @Service
 public class Scale implements IScale{
