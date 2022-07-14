@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import ru.trankwilizator.quartofifthcircle.command.util.Fret;
 import ru.trankwilizator.quartofifthcircle.command.util.Notes;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
-import ru.trankwilizator.quartofifthcircle.logic.scale.ScaleCalculator;
+import ru.trankwilizator.quartofifthcircle.logic.scale.calculate.ScaleCalculator;
 
 class MinorScaleCalculatorTest {
 

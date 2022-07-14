@@ -2,15 +2,9 @@ package ru.trankwilizator.quartofifthcircle.logic.quartoFifthCircle;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.slf4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import ru.trankwilizator.quartofifthcircle.logic.quarto_fifth_circle.QuartoFifthCircleWrapper;
+import ru.trankwilizator.quartofifthcircle.logic.quarto_fifth_circle.wrapper.QuartoFifthCircleWrapper;
 
 import java.util.Arrays;
 
@@ -18,13 +12,13 @@ import java.util.Arrays;
 class QuartoFifthCircleWrapperTest {
 
 
-    QuartoFifthCircleWrapper quartoFifthCircleWrapper = new QuartoFifthCircleWrapper();
+    QuartoFifthCircleWrapper quartoFifthCircleWrapper = Mockito.mock(QuartoFifthCircleWrapper.class);//new QuartoFifthCircleWrapper();
     Logger logger = Mockito.mock(Logger.class);
 
 
     @Test
     void doesntThrow(){
-        Assertions.assertDoesNotThrow(()->quartoFifthCircleWrapper.getChords("Am"));
+        Assertions.assertDoesNotThrow(()->quartoFifthCircleWrapper.getAsStrings("Am"));
     }
 
     @Test
@@ -45,7 +39,7 @@ class QuartoFifthCircleWrapperTest {
 
     void testCase(String chord, String[] testChords){
 
-        String[] chords = quartoFifthCircleWrapper.getChords(chord);
+        String[] chords = quartoFifthCircleWrapper.getAsStrings(chord);
 
         int i=0;
         for (String s:
@@ -74,30 +68,30 @@ class QuartoFifthCircleWrapperTest {
 
         Assertions.assertDoesNotThrow(
                 ()->{
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("Am")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("A#m")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("Bm")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("Cm")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("C#m")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("Dm")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("D#m")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("Em")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("Fm")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("F#m")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("Gm")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("G#m")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("A")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("A#")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("B")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("C")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("C#")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("D")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("D#")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("E")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("F")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("F#")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("G")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getChords("G#")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("Am")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("A#m")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("Bm")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("Cm")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("C#m")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("Dm")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("D#m")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("Em")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("Fm")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("F#m")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("Gm")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("G#m")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("A")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("A#")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("B")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("C")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("C#")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("D")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("D#")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("E")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("F")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("F#")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("G")));
+                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("G#")));
                 }
         );
 

@@ -2,12 +2,13 @@ package ru.trankwilizator.quartofifthcircle.logic.chord.converter;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import ru.trankwilizator.quartofifthcircle.exception.ChordException;
 
 
 class ChordConverterTest {
 
-    ChordConverterImpl chordConverter = new ChordConverterImpl();
+    ChordConverter chordConverter = Mockito.mock(ChordConverter.class);//new ChordConverterImpl(chordValidator);
 
     @Test
     void convertAmToChordDoesntThrow(){

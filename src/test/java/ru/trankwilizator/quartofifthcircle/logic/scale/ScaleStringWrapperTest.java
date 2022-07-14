@@ -2,13 +2,13 @@ package ru.trankwilizator.quartofifthcircle.logic.scale;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.slf4j.LoggerFactory;
-
-import static org.junit.jupiter.api.Assertions.*;
+import ru.trankwilizator.quartofifthcircle.logic.scale.wrapper.NotesWrapper;
 
 class ScaleStringWrapperTest {
 
-    ScaleStringWrapper scaleStringWrapper = new ScaleStringWrapper();
+    NotesWrapper scaleStringWrapper = Mockito.mock(NotesWrapper.class);//new ScaleStringWrapper();
 
     @Test
     void testAm(){
@@ -19,7 +19,7 @@ class ScaleStringWrapperTest {
 
 
     private void generalTests(String chordStr, String[] expected){
-        String[] actuals = scaleStringWrapper.getNotesAsStrings(chordStr);
+        String[] actuals = scaleStringWrapper.getAsStrings(chordStr);
 
         int i=0;
         for (String s:

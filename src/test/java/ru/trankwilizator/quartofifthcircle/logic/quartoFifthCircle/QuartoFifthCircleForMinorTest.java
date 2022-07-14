@@ -2,16 +2,16 @@ package ru.trankwilizator.quartofifthcircle.logic.quartoFifthCircle;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.mockito.Mockito;
 import ru.trankwilizator.quartofifthcircle.command.util.Fret;
 import ru.trankwilizator.quartofifthcircle.command.util.Notes;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
-import ru.trankwilizator.quartofifthcircle.logic.quarto_fifth_circle.QuartoFifthCircle;
+import ru.trankwilizator.quartofifthcircle.logic.quarto_fifth_circle.IQuartoFifthCircle;
 
 
 class QuartoFifthCircleForMinorTest {
 
-    QuartoFifthCircle quartoFifthCircleForMinor = new QuartoFifthCircle();
+    IQuartoFifthCircle quartoFifthCircleForMinor = Mockito.mock(IQuartoFifthCircle.class);//new QuartoFifthCircle();
 
     @Test
     void getChordsDoesntThrowException(){

@@ -1,15 +1,15 @@
 package ru.trankwilizator.quartofifthcircle.logic.quartoFifthCircle;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.mockito.Mockito;
 import ru.trankwilizator.quartofifthcircle.command.util.Notes;
-import ru.trankwilizator.quartofifthcircle.logic.quarto_fifth_circle.QuartoFifthCircle;
+import ru.trankwilizator.quartofifthcircle.logic.quarto_fifth_circle.IQuartoFifthCircle;
 
 
 class QuartoFifthCircleForMajorTest {
 
 
-    QuartoFifthCircle quartoFifthCircle = new QuartoFifthCircle();
+    IQuartoFifthCircle quartoFifthCircle = Mockito.mock(IQuartoFifthCircle.class);//new QuartoFifthCircle();
 
 
     /*@BeforeEach
