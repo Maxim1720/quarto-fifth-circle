@@ -37,7 +37,6 @@ public class ChordConverterImpl implements ChordConverter{
 
     private Notes convertStrToNote(String note){
         note = note.toUpperCase().replace('#','d');
-        LoggerFactory.getLogger(Logger.class).info(note, note.getClass());
         return Enum.valueOf(Notes.class, note);
     }
 
