@@ -46,7 +46,7 @@ public class Bot extends TelegramLongPollingCommandBot {
 
     @Override
     public void processNonCommandUpdate(Update update) {
-        MessagesLogger.logMessageRecivied(update.getMessage().getFrom());
+        MessagesLogger.logMessageReceived(update.getMessage().getFrom(), update.getMessage());
         SendMessage sendMessage = tryGetAnswer(update.getMessage());
         sendMessage.setChatId(String.valueOf(update.getMessage().getChatId()));
         tryExecute(sendMessage);
@@ -66,7 +66,7 @@ public class Bot extends TelegramLongPollingCommandBot {
         try {
             execute(sendMessage);
         } catch (TelegramApiException e) {
-            MessagesLogger.logError(e);
+            MessagesLogger.logError(Bot.class,e);
         }
         MessagesLogger.logMessageSent(sendMessage);
     }
