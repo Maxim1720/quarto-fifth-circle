@@ -6,6 +6,7 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.bots.AbsSender;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+import ru.trankwilizator.quartofifthcircle.bot.log.MessagesLogger;
 
 import java.util.function.BiConsumer;
 
@@ -21,7 +22,9 @@ public class NotCommand implements BiConsumer<AbsSender, Message> {
         sendMessage.setText(answer);
 
         try {
+            MessagesLogger.logMessageReceived(sender.getMe(), message);
             sender.execute(sendMessage);
+            MessagesLogger.logMessageSent(sendMessage);
         } catch (TelegramApiException e) {
             throw new RuntimeException(e);
         }
