@@ -1,4 +1,4 @@
-package ru.trankwilizator.quartofifthcircle.command.strings;
+package ru.trankwilizator.quartofifthcircle.util;
 
 import org.springframework.stereotype.Component;
 

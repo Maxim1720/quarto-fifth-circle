@@ -2,8 +2,8 @@ package ru.trankwilizator.quartofifthcircle.logic.quarto_fifth_circle;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import ru.trankwilizator.quartofifthcircle.command.util.Fret;
-import ru.trankwilizator.quartofifthcircle.command.util.Notes;
+import ru.trankwilizator.quartofifthcircle.util.Fret;
+import ru.trankwilizator.quartofifthcircle.util.Notes;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
 import ru.trankwilizator.quartofifthcircle.logic.scale.IScale;
 import ru.trankwilizator.quartofifthcircle.logic.scale.calculate.step.ScalePositioner;

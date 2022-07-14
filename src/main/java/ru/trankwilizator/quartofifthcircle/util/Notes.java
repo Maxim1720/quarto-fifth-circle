@@ -1,4 +1,4 @@
-package ru.trankwilizator.quartofifthcircle.command.util;
+package ru.trankwilizator.quartofifthcircle.util;
 
 public enum Notes {
     A("A"),

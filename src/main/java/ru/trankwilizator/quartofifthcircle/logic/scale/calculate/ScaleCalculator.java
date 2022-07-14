@@ -1,8 +1,8 @@
 package ru.trankwilizator.quartofifthcircle.logic.scale.calculate;
 
 import org.springframework.stereotype.Component;
-import ru.trankwilizator.quartofifthcircle.command.util.NotePositionCorrector;
-import ru.trankwilizator.quartofifthcircle.command.util.Notes;
+import ru.trankwilizator.quartofifthcircle.util.NotePositionCorrector;
+import ru.trankwilizator.quartofifthcircle.util.Notes;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
 import ru.trankwilizator.quartofifthcircle.logic.scale.calculate.step.ScalePositioner;
 import ru.trankwilizator.quartofifthcircle.logic.scale.calculate.util.ScaleCalculateStrategy;
