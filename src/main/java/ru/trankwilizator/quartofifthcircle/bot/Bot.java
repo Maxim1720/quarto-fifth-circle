@@ -54,13 +54,11 @@ public class Bot extends TelegramLongPollingCommandBot {
 
 
     private SendMessage tryGetAnswer(Message message){
-        SendMessage sendMessage;
-        try {
-            sendMessage = botMessageHandler.getAnswer(message);
-        } catch (MessageHandlerException e) {
-            sendMessage = new SendMessage();
-            sendMessage.setText("Please, send command for starting!!! :3");
-        }
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setChatId(message.getChat().getId().toString());
+        sendMessage.setText(
+                MessageSourceResourceBundle.getBundle("messages").getString("bot.message.error")
+        );
         return sendMessage;
     }
 
