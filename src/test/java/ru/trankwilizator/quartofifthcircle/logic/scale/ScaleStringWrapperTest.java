@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.slf4j.LoggerFactory;
-import ru.trankwilizator.quartofifthcircle.logic.scale.wrapper.NotesWrapper;
+import ru.trankwilizator.quartofifthcircle.logic.scale.natural.wrapper.NotesWrapper;
 
 class ScaleStringWrapperTest {
 

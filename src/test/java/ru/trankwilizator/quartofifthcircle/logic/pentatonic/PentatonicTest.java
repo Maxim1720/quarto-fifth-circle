@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 import ru.trankwilizator.quartofifthcircle.util.Fret;
 import ru.trankwilizator.quartofifthcircle.util.Notes;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
-import ru.trankwilizator.quartofifthcircle.logic.scale.IScale;
-import ru.trankwilizator.quartofifthcircle.logic.scale.Scale;
-import ru.trankwilizator.quartofifthcircle.logic.scale.calculate.IScaleCalculator;
-import ru.trankwilizator.quartofifthcircle.logic.scale.calculate.ScaleCalculator;
+import ru.trankwilizator.quartofifthcircle.logic.scale.natural.IScale;
+import ru.trankwilizator.quartofifthcircle.logic.scale.natural.Scale;
+import ru.trankwilizator.quartofifthcircle.logic.scale.natural.calculate.IScaleCalculator;
+import ru.trankwilizator.quartofifthcircle.logic.scale.natural.calculate.ScaleCalculator;
 
 class PentatonicTest {
     IScaleCalculator scaleCalculator = new ScaleCalculator();
