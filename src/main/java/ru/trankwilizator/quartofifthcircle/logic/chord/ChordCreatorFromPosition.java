@@ -1,8 +1,8 @@
 package ru.trankwilizator.quartofifthcircle.logic.chord;
 
-import ru.trankwilizator.quartofifthcircle.command.util.Fret;
-import ru.trankwilizator.quartofifthcircle.command.util.Notes;
-import ru.trankwilizator.quartofifthcircle.command.util.NotePositionCorrector;
+import ru.trankwilizator.quartofifthcircle.util.Fret;
+import ru.trankwilizator.quartofifthcircle.util.Notes;
+import ru.trankwilizator.quartofifthcircle.util.NotePositionCorrector;
 
 public class ChordCreatorFromPosition {
 
