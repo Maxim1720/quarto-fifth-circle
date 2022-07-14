@@ -10,12 +10,7 @@ import ru.trankwilizator.quartofifthcircle.util.StrAnswerBuilder;
 import ru.trankwilizator.quartofifthcircle.exception.ChordException;
 import ru.trankwilizator.quartofifthcircle.logic.StrWrapper;
 
-//@Component
 public abstract class Command<T> implements IBotCommand {
-
-//    private final CommandMessageHandler commandMessageHandler;
-
-
     private final StrWrapper<T> wrapper;
     private final StrAnswerBuilder strAnswerBuilder;
 
