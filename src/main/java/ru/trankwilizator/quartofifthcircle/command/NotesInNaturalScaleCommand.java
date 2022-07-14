@@ -3,8 +3,8 @@ package ru.trankwilizator.quartofifthcircle.command;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.support.MessageSourceResourceBundle;
 import org.springframework.stereotype.Component;
-import ru.trankwilizator.quartofifthcircle.command.strings.StrAnswerBuilder;
-import ru.trankwilizator.quartofifthcircle.command.util.Notes;
+import ru.trankwilizator.quartofifthcircle.util.StrAnswerBuilder;
+import ru.trankwilizator.quartofifthcircle.util.Notes;
 import ru.trankwilizator.quartofifthcircle.logic.StrWrapper;
 
 @Component
