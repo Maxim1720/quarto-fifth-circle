@@ -1,4 +1,4 @@
-package ru.trankwilizator.quartofifthcircle.logic.quarto_fifth_circle.wrapper;
+package ru.trankwilizator.quartofifthcircle.logic.wrapper.quartoFifthCircle;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

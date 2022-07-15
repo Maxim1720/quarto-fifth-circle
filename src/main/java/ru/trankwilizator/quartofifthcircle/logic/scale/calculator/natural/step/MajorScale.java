@@ -1,4 +1,4 @@
-package ru.trankwilizator.quartofifthcircle.logic.scale.natural.calculate.step;
+package ru.trankwilizator.quartofifthcircle.logic.scale.calculator.natural.step;
 
 public class MajorScale implements ScalePositioner {
     @Override

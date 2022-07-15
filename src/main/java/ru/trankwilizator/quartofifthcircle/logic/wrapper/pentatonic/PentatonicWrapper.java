@@ -1,4 +1,4 @@
-package ru.trankwilizator.quartofifthcircle.logic.scale.natural.wrapper;
+package ru.trankwilizator.quartofifthcircle.logic.wrapper.pentatonic;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -7,21 +7,21 @@ import ru.trankwilizator.quartofifthcircle.util.Notes;
 import ru.trankwilizator.quartofifthcircle.logic.StrWrapper;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
 import ru.trankwilizator.quartofifthcircle.logic.chord.converter.ChordConverter;
-import ru.trankwilizator.quartofifthcircle.logic.scale.natural.IScale;
+import ru.trankwilizator.quartofifthcircle.logic.pentatonic.Pentatonic;
 
 @Component
-@Qualifier("notesWrapper")
-public class NotesWrapper extends StrWrapper<Notes> {
+@Qualifier("pentatonicWrapper")
+public class PentatonicWrapper extends StrWrapper<Notes> {
 
-    private final IScale scale;
+    private final Pentatonic pentatonic;
+
     @Autowired
-    protected NotesWrapper(ChordConverter chordConverter, IScale scale) {
+    protected PentatonicWrapper(ChordConverter chordConverter, Pentatonic pentatonic) {
         super(chordConverter);
-        this.scale = scale;
+        this.pentatonic = pentatonic;
     }
-
     @Override
     protected Notes[] getObjects(Chord tonicChord) {
-        return scale.getNotes(tonicChord);
+        return pentatonic.getNotes(tonicChord);
     }
 }

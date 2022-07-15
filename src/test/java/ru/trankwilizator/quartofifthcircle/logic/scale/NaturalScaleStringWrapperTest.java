@@ -4,11 +4,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.slf4j.LoggerFactory;
-import ru.trankwilizator.quartofifthcircle.logic.scale.natural.wrapper.NotesWrapper;
+import ru.trankwilizator.quartofifthcircle.logic.wrapper.scale.NaturalScaleWrapper;
 
-class ScaleStringWrapperTest {
+class NaturalScaleStringWrapperTest {
 
-    NotesWrapper scaleStringWrapper = Mockito.mock(NotesWrapper.class);//new ScaleStringWrapper();
+    NaturalScaleWrapper scaleStringWrapper = Mockito.mock(NaturalScaleWrapper.class);//new ScaleStringWrapper();
 
     @Test
     void testAm(){

@@ -6,11 +6,11 @@ import org.slf4j.LoggerFactory;
 import ru.trankwilizator.quartofifthcircle.util.Fret;
 import ru.trankwilizator.quartofifthcircle.util.Notes;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
-import ru.trankwilizator.quartofifthcircle.logic.scale.natural.calculate.ScaleCalculator;
+import ru.trankwilizator.quartofifthcircle.logic.scale.calculator.natural.NaturalScaleCalculator;
 
-class MinorScaleCalculatorTest {
+class MinorNaturalNaturalScaleCalculatorTest {
 
-    ScaleCalculator minorScaleCalculator = new ScaleCalculator();
+    NaturalScaleCalculator minorNaturalScaleCalculator = new NaturalScaleCalculator();
 
     @Test
     void testAm(){
@@ -48,12 +48,12 @@ class MinorScaleCalculatorTest {
     }
 
     private void testDoesntThrow(Chord note){
-        Assertions.assertDoesNotThrow(()->minorScaleCalculator.calculate(note));
+        Assertions.assertDoesNotThrow(()-> minorNaturalScaleCalculator.calculate(note));
     }
 
     private void testEquals(Notes[] notes, Chord tonic){
 
-        Notes[] actualNotes = minorScaleCalculator.calculate(tonic);
+        Notes[] actualNotes = minorNaturalScaleCalculator.calculate(tonic);
         int i=0;
         for (Notes n:
              actualNotes) {
