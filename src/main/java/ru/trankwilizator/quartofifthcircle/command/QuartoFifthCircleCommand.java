@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.MessageSourceResourceBundle;
 import org.springframework.stereotype.Component;
 import ru.trankwilizator.quartofifthcircle.util.StrAnswerBuilder;
-import ru.trankwilizator.quartofifthcircle.logic.StrWrapper;
+import ru.trankwilizator.quartofifthcircle.logic.wrapper.StrWrapper;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
 
 @Component

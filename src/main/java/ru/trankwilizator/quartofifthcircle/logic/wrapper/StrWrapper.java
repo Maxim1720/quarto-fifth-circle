@@ -1,4 +1,4 @@
-package ru.trankwilizator.quartofifthcircle.logic;
+package ru.trankwilizator.quartofifthcircle.logic.wrapper;
 
 import org.slf4j.LoggerFactory;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;

@@ -3,7 +3,7 @@ package ru.trankwilizator.quartofifthcircle.logic.wrapper.quartoFifthCircle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-import ru.trankwilizator.quartofifthcircle.logic.StrWrapper;
+import ru.trankwilizator.quartofifthcircle.logic.wrapper.StrWrapper;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
 import ru.trankwilizator.quartofifthcircle.logic.chord.converter.ChordConverter;
 import ru.trankwilizator.quartofifthcircle.logic.quarto_fifth_circle.IQuartoFifthCircle;
