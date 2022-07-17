@@ -12,8 +12,10 @@ import ru.trankwilizator.quartofifthcircle.util.Notes;
 public class MelodicScale implements Scale {
 
     private final MelodicScaleCalculator melodicScaleCalculator;
+    private final NaturalScaleCalculator naturalScaleCalculator;
 
-    public MelodicScale(MelodicScaleCalculator melodicScaleCalculator) {
+    public MelodicScale(MelodicScaleCalculator melodicScaleCalculator,
+                        NaturalScaleCalculator naturalScaleCalculator) {
         this.melodicScaleCalculator = melodicScaleCalculator;
     }
 
