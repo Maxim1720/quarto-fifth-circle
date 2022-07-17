@@ -21,4 +21,16 @@ public class MelodicScale implements Scale {
     public Notes[] getNotes(Chord chord) {
         return melodicScaleCalculator.calculate(chord);
     }
+
+    private Notes[] toNotesArray(List<Notes> notes){
+
+        Notes[] notes1 = new Notes[notes.size()];
+        int i=0;
+        for (Notes n:
+             notes) {
+            notes1[i++] = n;
+        }
+
+        return notes1;
+    }
 }
