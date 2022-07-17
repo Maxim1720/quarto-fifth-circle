@@ -50,6 +50,14 @@ public abstract class Command<T> implements IBotCommand {
         }
     }
 
+    protected StrWrapper<T> wrapper(){
+        return wrapper;
+    }
+
+    protected String[] getResultStrings(String tonality){
+        return wrapper().getAsStrings(tonality);
+    }
+
     private void checkIsEmptyStrings(String[] strings){
         if(strings.length == 0){
             throw new ChordException(MessageSourceResourceBundle
