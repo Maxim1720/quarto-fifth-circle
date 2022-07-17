@@ -40,7 +40,7 @@ public abstract class Command<T> implements IBotCommand {
             SendMessage sendMessage;
             try {
                 sendMessage = new SendMessage(message.getChat().getId().toString(),
-                        strAnswerBuilder.build(wrapper.getAsStrings(chordText)));
+                        strAnswerBuilder.build(getResultStrings(chordText)));
             }
             catch (ChordException e){
                 sendMessage = new SendMessage(message.getChat().getId().toString(),
