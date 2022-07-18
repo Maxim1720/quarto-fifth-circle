@@ -9,8 +9,7 @@ import ru.trankwilizator.quartofifthcircle.util.Notes;
 import ru.trankwilizator.quartofifthcircle.util.StrAnswerBuilder;
 
 @Component
-public class PentatonicCommand extends Command<Notes> {
-
+public class PentatonicCommand extends Command {
     protected PentatonicCommand(@Qualifier("pentatonicWrapper") StrWrapper<Notes> wrapper,
                                 StrAnswerBuilder strAnswerBuilder) {
         super(new CustomScaleCommandMessageProcessor(wrapper,strAnswerBuilder));
