@@ -3,15 +3,16 @@ package ru.trankwilizator.quartofifthcircle.command;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.MessageSourceResourceBundle;
 import org.springframework.stereotype.Component;
+import ru.trankwilizator.quartofifthcircle.message.CommandMessageProcessor;
 import ru.trankwilizator.quartofifthcircle.util.StrAnswerBuilder;
 import ru.trankwilizator.quartofifthcircle.logic.wrapper.StrWrapper;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
 
 @Component
-public class QuartoFifthCircleCommand extends Command<Chord> {
+public class QuartoFifthCircleCommand extends Command {
     @Autowired
     protected QuartoFifthCircleCommand(StrWrapper<Chord> wrapper, StrAnswerBuilder strAnswerBuilder) {
-        super(wrapper, strAnswerBuilder);
+        super(new CommandMessageProcessor(wrapper, strAnswerBuilder));
     }
 
     @Override
