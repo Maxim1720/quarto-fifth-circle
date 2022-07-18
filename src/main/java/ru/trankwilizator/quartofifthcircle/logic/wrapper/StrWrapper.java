@@ -6,7 +6,7 @@ import ru.trankwilizator.quartofifthcircle.logic.chord.converter.ChordConverter;
 
 import java.util.Arrays;
 
-public abstract class StrWrapper<T> {
+public abstract class StrWrapper<T> implements IStrWrapper{
     private final ChordConverter chordConverter;
 
     protected StrWrapper(ChordConverter chordConverter) {
