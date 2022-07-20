@@ -37,14 +37,4 @@ public class CustomScaleCommandMessageProcessor extends CommandMessageProcessor{
                 String[]::new
         );
     }
-
-    private String[] toArray(List<String> list){
-        int i=0;
-        String[] arr = new String[list.size()];
-        for (String s:
-                list) {
-            arr[i++] = s;
-        }
-        return arr;
-    }
 }
