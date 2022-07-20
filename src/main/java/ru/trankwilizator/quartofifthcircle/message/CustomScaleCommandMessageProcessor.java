@@ -33,7 +33,9 @@ public class CustomScaleCommandMessageProcessor extends CommandMessageProcessor{
                         .getString("bot.command.scale.descending.caption") + ':'
         );
         res.add(halfSize+1, "\n");
-        return toArray(res);
+        return res.stream().toArray(
+                String[]::new
+        );
     }
 
     private String[] toArray(List<String> list){
