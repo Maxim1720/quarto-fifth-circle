@@ -47,21 +47,25 @@ public class CommandMessageProcessor implements MessageProcessor{
     private void sendAnswers(String[] strings, Message message, AbsSender sender){
         for (String chordText :
                 strings) {
-            SendMessage sendMessage;
-            try {
-                sendMessage = new SendMessage(message.getChat().getId().toString(),
-                        strAnswerBuilder.build(getResultStrings(chordText)));
-            }
-            catch (ChordException e){
-                sendMessage = new SendMessage(message.getChat().getId().toString(),
-                        e.getMessage());
-            }
-            tryExecuteSendMessage(sender,sendMessage);
+            tryExecuteSendMessage(sender,
+                    tryGetResultSendMessage(message
+                            .getChat()
+                            .getId().toString(),
+                            chordText));
         }
     }
 
-    protected IStrWrapper wrapper(){
-        return wrapper;
+    private SendMessage tryGetResultSendMessage(String chatId, String text){
+        SendMessage sendMessage;
+        try {
+            sendMessage = new SendMessage(chatId,
+                    strAnswerBuilder.build(getResultStrings(text)));
+        }
+        catch (ChordException e){
+            sendMessage = new SendMessage(chatId,
+                    e.getMessage());
+        }
+        return sendMessage;
     }
 
     protected String[] getResultStrings(String tonality){
