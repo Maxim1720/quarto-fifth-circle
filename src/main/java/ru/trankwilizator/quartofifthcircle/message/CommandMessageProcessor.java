@@ -68,10 +68,6 @@ public class CommandMessageProcessor implements MessageProcessor{
         return sendMessage;
     }
 
-    protected String[] getResultStrings(String tonality){
-        return wrapper().getAsStrings(tonality);
-    }
-
     private void checkIsEmptyStrings(String[] strings){
         if(strings.length == 0){
             throw new ChordException(MessageSourceResourceBundle
