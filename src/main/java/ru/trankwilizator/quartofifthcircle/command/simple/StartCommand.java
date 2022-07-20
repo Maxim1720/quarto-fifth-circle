@@ -1,4 +1,4 @@
-package ru.trankwilizator.quartofifthcircle.command;
+package ru.trankwilizator.quartofifthcircle.command.simple;
 
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.extensions.bots.commandbot.commands.IBotCommand;
@@ -6,27 +6,33 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.bots.AbsSender;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-import ru.trankwilizator.quartofifthcircle.bot.log.MessagesLogger;
-
-import java.util.function.BiConsumer;
-
 @Component
-public class NotCommand implements BiConsumer<AbsSender, Message> {
+public class StartCommand implements IBotCommand {
 
     @Override
-    public void accept(AbsSender sender, Message message) {
+    public String getCommandIdentifier() {
+        return "start";
+    }
+
+    @Override
+    public String getDescription() {
+        return "Начало работы с ботом";
+    }
+
+    @Override
+    public void processMessage(AbsSender absSender, Message message, String[] strings) {
 
         SendMessage sendMessage = new SendMessage();
-        String answer = "Unknown command: " + message.getText();
         sendMessage.setChatId(message.getChat().getId().toString());
-        sendMessage.setText(answer);
-
+        sendMessage.setText("""
+                Welcome to the Quarto Fifth Circle Rofl Bot.
+                 Please, select command then i can help you :)
+                """);
         try {
-            MessagesLogger.logMessageReceived(sender.getMe(), message);
-            sender.execute(sendMessage);
-            MessagesLogger.logMessageSent(sendMessage);
+            absSender.execute(sendMessage);
         } catch (TelegramApiException e) {
             throw new RuntimeException(e);
         }
+
     }
 }
