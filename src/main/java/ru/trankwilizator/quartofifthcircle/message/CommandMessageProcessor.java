@@ -22,15 +22,17 @@ public class CommandMessageProcessor implements MessageProcessor{
     }
 
     public void processMessage(AbsSender absSender, Message message, String[] strings){
-        SendMessage sendMessage;
         try {
             checkIsEmptyStrings(strings);
             sendAnswers(strings,message,absSender);
         }
         catch (ChordException e){
-            sendMessage = new SendMessage(message.getChat().getId().toString(),
-                    e.getMessage());
-            tryExecuteSendMessage(absSender,sendMessage);
+            tryExecuteSendMessage(absSender,
+                    new SendMessage(message
+                            .getChat()
+                            .getId().toString(),
+                            e.getMessage())
+            );
         }
     }
 
