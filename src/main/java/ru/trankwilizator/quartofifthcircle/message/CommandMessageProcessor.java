@@ -21,6 +21,14 @@ public class CommandMessageProcessor implements MessageProcessor{
         this.strAnswerBuilder = strAnswerBuilder;
     }
 
+    protected IStrWrapper wrapper(){
+        return wrapper;
+    }
+
+    protected String[] getResultStrings(String tonality){
+        return wrapper().getAsStrings(tonality);
+    }
+
     public void processMessage(AbsSender absSender, Message message, String[] strings){
         try {
             checkIsEmptyStrings(strings);
