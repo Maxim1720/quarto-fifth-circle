@@ -44,6 +44,14 @@ public class CommandMessageProcessor implements MessageProcessor{
         }
     }
 
+    private void checkIsEmptyStrings(String[] strings){
+        if(strings.length == 0){
+            throw new ChordException(MessageSourceResourceBundle
+                    .getBundle("messages")
+                    .getString("bot.chord.error.empty"));
+        }
+    }
+
     private void sendAnswers(String[] strings, Message message, AbsSender sender){
         for (String chordText :
                 strings) {
@@ -55,6 +63,14 @@ public class CommandMessageProcessor implements MessageProcessor{
         }
     }
 
+    private void tryExecuteSendMessage(AbsSender sender, SendMessage sendMessage){
+        try {
+            sender.execute(sendMessage);
+        }
+        catch (TelegramApiException e){
+            throw new RuntimeException();
+        }
+    }
     private SendMessage tryGetResultSendMessage(String chatId, String text){
         SendMessage sendMessage;
         try {
@@ -66,22 +82,6 @@ public class CommandMessageProcessor implements MessageProcessor{
                     e.getMessage());
         }
         return sendMessage;
-    }
-
-    private void checkIsEmptyStrings(String[] strings){
-        if(strings.length == 0){
-            throw new ChordException(MessageSourceResourceBundle
-                    .getBundle("messages")
-                    .getString("bot.chord.error.empty"));
-        }
-    }
-    private void tryExecuteSendMessage(AbsSender sender, SendMessage sendMessage){
-        try {
-            sender.execute(sendMessage);
-        }
-        catch (TelegramApiException e){
-            throw new RuntimeException();
-        }
     }
 
 }
