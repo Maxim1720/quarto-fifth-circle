@@ -10,7 +10,7 @@ import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import ru.trankwilizator.quartofifthcircle.bot.log.MessagesLogger;
-import ru.trankwilizator.quartofifthcircle.command.simple.NotCommand;
+import ru.trankwilizator.quartofifthcircle.bot.command.simple.NotCommand;
 
 @Component
 public class Bot extends TelegramLongPollingCommandBot {
