@@ -39,13 +39,13 @@ public class Bot extends TelegramLongPollingCommandBot {
     @Override
     public void processNonCommandUpdate(Update update) {
         MessagesLogger.logMessageReceived(update.getMessage().getFrom(), update.getMessage());
-        SendMessage sendMessage = tryGetAnswer(update.getMessage());
+        SendMessage sendMessage = incorrectCommandSendMessage(update.getMessage());
         sendMessage.setChatId(String.valueOf(update.getMessage().getChatId()));
         tryExecute(sendMessage);
     }
 
 
-    private SendMessage tryGetAnswer(Message message){
+    private SendMessage incorrectCommandSendMessage(Message message){
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(message.getChat().getId().toString());
         sendMessage.setText(
