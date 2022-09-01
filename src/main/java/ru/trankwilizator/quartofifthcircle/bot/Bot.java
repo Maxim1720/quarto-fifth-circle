@@ -49,7 +49,9 @@ public class Bot extends TelegramLongPollingCommandBot {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(message.getChat().getId().toString());
         sendMessage.setText(
-                MessageSourceResourceBundle.getBundle("messages").getString("bot.message.error")
+                MessageSourceResourceBundle
+                        .getBundle("messages")
+                        .getString("bot.message.error")
         );
         return sendMessage;
     }
