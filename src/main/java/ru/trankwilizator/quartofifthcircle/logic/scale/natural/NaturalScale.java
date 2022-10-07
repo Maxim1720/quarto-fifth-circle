@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import ru.trankwilizator.quartofifthcircle.logic.scale.Scale;
 import ru.trankwilizator.quartofifthcircle.util.Notes;
-import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
+import ru.trankwilizator.quartofifthcircle.logic.tonality.Tonality;
 import ru.trankwilizator.quartofifthcircle.logic.scale.calculator.ScaleCalculator;
 
 @Service
@@ -18,7 +18,7 @@ public class NaturalScale implements Scale {
         this.scaleCalculator = scaleCalculator;
     }
 
-    public Notes[] getNotes(Chord chord){
-        return scaleCalculator.calculate(chord);
+    public Notes[] notes(Tonality tonality){
+        return scaleCalculator.calculate(tonality);
     }
 }
