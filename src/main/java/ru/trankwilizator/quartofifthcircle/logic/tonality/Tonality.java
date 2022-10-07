@@ -1,15 +1,15 @@
-package ru.trankwilizator.quartofifthcircle.logic.chord;
+package ru.trankwilizator.quartofifthcircle.logic.tonality;
 
 import lombok.Getter;
 import ru.trankwilizator.quartofifthcircle.util.Fret;
 import ru.trankwilizator.quartofifthcircle.util.Notes;
 
 @Getter
-public class Chord {
+public class Tonality {
     private final Notes keyNote;
     private final Fret fret;
 
-    public Chord(Notes keyNote, Fret fret){
+    public Tonality(Notes keyNote, Fret fret){
         this.fret = fret;
         this.keyNote = keyNote;
     }
