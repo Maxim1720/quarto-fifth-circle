@@ -4,8 +4,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import ru.trankwilizator.quartofifthcircle.util.Fret;
 import ru.trankwilizator.quartofifthcircle.util.Notes;
-import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
-import ru.trankwilizator.quartofifthcircle.logic.scale.Scale;
+import ru.trankwilizator.quartofifthcircle.logic.tonality.Tonality;
 import ru.trankwilizator.quartofifthcircle.logic.scale.calculator.natural.step.ScalePositioner;
 
 @Service
@@ -19,15 +18,17 @@ public class QuartoFifthCircle implements IQuartoFifthCircle {
     }
 
     @Override
-    public Chord[] getChords(Chord chord) {
-        Notes[] notes = scale.getNotes(chord);
-        return makeChords(notes, chord);
+    public Tonality[] chords(Tonality tonality) {
+        Notes[] notes = scale.notes(tonality);
+        return makeChords(notes, tonality);
     }
 
-    private Chord[] makeChords(Notes[] notes, Chord tonic) {
+    private Tonality[] makeChords(Notes[] notes, Tonality tonic) {
 
-        Chord[] chords = new Chord[ScalePositioner.NOTES_COUNT - 1];
-        chords[0] = tonic;
+
+        Tonality[] tonalities = new Tonality[ScalePositioner.NOTES_COUNT - 1];
+        tonalities[0] = tonic;
+        int[] indexes = new int[tonalities.length-1];
         if (tonic.getFret().equals(Fret.MINOR)) {
             chords[1] = new Chord(notes[2], Fret.MAJOR);
             chords[2] = new Chord(notes[3], Fret.MINOR);
