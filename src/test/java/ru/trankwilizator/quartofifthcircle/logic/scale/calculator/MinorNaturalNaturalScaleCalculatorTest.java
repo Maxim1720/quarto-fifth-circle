@@ -3,9 +3,9 @@ package ru.trankwilizator.quartofifthcircle.logic.scale.calculator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.slf4j.LoggerFactory;
+import ru.trankwilizator.quartofifthcircle.logic.tonality.Tonality;
 import ru.trankwilizator.quartofifthcircle.util.Fret;
 import ru.trankwilizator.quartofifthcircle.util.Notes;
-import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
 import ru.trankwilizator.quartofifthcircle.logic.scale.calculator.natural.NaturalScaleCalculator;
 
 class MinorNaturalNaturalScaleCalculatorTest {
@@ -24,7 +24,7 @@ class MinorNaturalNaturalScaleCalculatorTest {
                 Notes.F,
                 Notes.G
         };
-        generalCase(new Chord(Notes.A, Fret.MINOR), notes);
+        generalCase(new Tonality(Notes.A, Fret.MINOR), notes);
     }
 
     @Test
@@ -39,19 +39,19 @@ class MinorNaturalNaturalScaleCalculatorTest {
                 Notes.E,
                 Notes.Fd
         };
-        generalCase(new Chord(Notes.Gd, Fret.MINOR), notes);
+        generalCase(new Tonality(Notes.Gd, Fret.MINOR), notes);
     }
 
-    private void generalCase(Chord tonic, Notes[] expectedNotes){
+    private void generalCase(Tonality tonic, Notes[] expectedNotes){
         testDoesntThrow(tonic);
         testEquals(expectedNotes,tonic);
     }
 
-    private void testDoesntThrow(Chord note){
+    private void testDoesntThrow(Tonality note){
         Assertions.assertDoesNotThrow(()-> minorNaturalScaleCalculator.calculate(note));
     }
 
-    private void testEquals(Notes[] notes, Chord tonic){
+    private void testEquals(Notes[] notes, Tonality tonic){
 
         Notes[] actualNotes = minorNaturalScaleCalculator.calculate(tonic);
         int i=0;

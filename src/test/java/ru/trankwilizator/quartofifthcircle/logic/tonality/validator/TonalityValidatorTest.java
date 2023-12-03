@@ -1,12 +1,12 @@
-package ru.trankwilizator.quartofifthcircle.logic.chord.validator;
+package ru.trankwilizator.quartofifthcircle.logic.tonality.validator;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import ru.trankwilizator.quartofifthcircle.exception.ChordException;
+import ru.trankwilizator.quartofifthcircle.exception.TonalityException;
 
-class ChordValidatorTest {
+class TonalityValidatorTest {
 
-    ChordValidatorImpl chordValidator = new ChordValidatorImpl();
+    TonalityValidatorImpl chordValidator = new TonalityValidatorImpl();
 
     @Test
     void testAm(){
@@ -15,7 +15,7 @@ class ChordValidatorTest {
 
     @Test
     void testAA(){
-        Assertions.assertThrows(ChordException.class, ()-> chordValidator.validate("AA"));
+        Assertions.assertThrows(TonalityException.class, ()-> chordValidator.validate("AA"));
     }
 
     @Test

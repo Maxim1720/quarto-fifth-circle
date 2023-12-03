@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import ru.trankwilizator.quartofifthcircle.util.Fret;
 import ru.trankwilizator.quartofifthcircle.util.Notes;
-import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
+import ru.trankwilizator.quartofifthcircle.logic.tonality.Tonality;
 import ru.trankwilizator.quartofifthcircle.logic.quarto_fifth_circle.IQuartoFifthCircle;
 
 
@@ -17,7 +17,7 @@ class QuartoFifthCircleForMinorTest {
     void getChordsDoesntThrowException(){
 
         Assertions.assertDoesNotThrow(()->{
-            quartoFifthCircleForMinor.getChords(new Chord(Notes.A, Fret.MINOR));
+            quartoFifthCircleForMinor.chords(new Tonality(Notes.A, Fret.MINOR));
         } );
 
     }

@@ -1,14 +1,14 @@
-package ru.trankwilizator.quartofifthcircle.logic.chord.converter;
+package ru.trankwilizator.quartofifthcircle.logic.tonality.converter;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import ru.trankwilizator.quartofifthcircle.exception.ChordException;
+import ru.trankwilizator.quartofifthcircle.exception.TonalityException;
+import ru.trankwilizator.quartofifthcircle.logic.tonality.validator.TonalityValidatorImpl;
 
 
-class ChordConverterTest {
+class TonalityConverterTest {
 
-    ChordConverter chordConverter = Mockito.mock(ChordConverter.class);//new ChordConverterImpl(chordValidator);
+    TonalityConverter tonalityConverter = new TonalityConverterImpl(new TonalityValidatorImpl());//Mockito.mock(ChordConverter.class);//new ChordConverterImpl(chordValidator);
 
     @Test
     void convertAmToChordDoesntThrow(){
@@ -49,10 +49,10 @@ class ChordConverterTest {
 
 
     void throwChordException(String brokenChord){
-        Assertions.assertThrows(ChordException.class, ()->chordConverter.convertToChord(brokenChord));
+        Assertions.assertThrows(TonalityException.class, ()-> tonalityConverter.convert(brokenChord));
     }
 
     void doesntThrowConverting(String chord){
-        Assertions.assertDoesNotThrow(()->chordConverter.convertToChord(chord));
+        Assertions.assertDoesNotThrow(()-> tonalityConverter.convert(chord));
     }
 }

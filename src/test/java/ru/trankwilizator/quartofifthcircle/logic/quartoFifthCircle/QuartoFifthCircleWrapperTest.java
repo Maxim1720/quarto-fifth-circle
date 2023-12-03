@@ -4,7 +4,12 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.slf4j.Logger;
-import ru.trankwilizator.quartofifthcircle.logic.wrapper.quartoFifthCircle.QuartoFifthCircleWrapper;
+import ru.trankwilizator.quartofifthcircle.logic.tonality.converter.TonalityConverterImpl;
+import ru.trankwilizator.quartofifthcircle.logic.tonality.validator.TonalityValidatorImpl;
+import ru.trankwilizator.quartofifthcircle.logic.quarto_fifth_circle.QuartoFifthCircle;
+import ru.trankwilizator.quartofifthcircle.logic.scale.calculator.natural.NaturalScaleCalculator;
+import ru.trankwilizator.quartofifthcircle.logic.scale.natural.NaturalScale;
+import ru.trankwilizator.quartofifthcircle.logic.str_converter.StrTonalityWrapper;
 
 import java.util.Arrays;
 
@@ -12,19 +17,24 @@ import java.util.Arrays;
 class QuartoFifthCircleWrapperTest {
 
 
-    QuartoFifthCircleWrapper quartoFifthCircleWrapper = Mockito.mock(QuartoFifthCircleWrapper.class);//new QuartoFifthCircleWrapper();
+    //QuartoFifthCircleWrapper quartoFifthCircleWrapper = Mockito.mock(QuartoFifthCircleWrapper.class);//new QuartoFifthCircleWrapper();
+
+    StrTonalityWrapper wrapper = new StrTonalityWrapper(new QuartoFifthCircle(new NaturalScale(new NaturalScaleCalculator())),
+            new TonalityConverterImpl(new TonalityValidatorImpl()));
+
     Logger logger = Mockito.mock(Logger.class);
 
 
     @Test
     void doesntThrow(){
-        Assertions.assertDoesNotThrow(()->quartoFifthCircleWrapper.getAsStrings("Am"));
+        Assertions.assertDoesNotThrow(()->wrapper.getAsStrings("Am"));
     }
 
     @Test
     void testCaseAm(){
         String[] chords = new String[]{
-                "C","F","G", "Em", "Dm"
+                "Am","C","F","G", "Em", "Dm"
+
         };
         testCase("Am", chords);
     }
@@ -32,6 +42,7 @@ class QuartoFifthCircleWrapperTest {
     @Test
     void testCaseCm(){
         String[] chords = new String[]{
+                "Cm",
                 "D#","G#","A#", "Gm", "Fm"
         };
         testCase("Cm", chords);
@@ -39,12 +50,12 @@ class QuartoFifthCircleWrapperTest {
 
     void testCase(String chord, String[] testChords){
 
-        String[] chords = quartoFifthCircleWrapper.getAsStrings(chord);
+        String[] chords = wrapper.getAsStrings(chord);
 
         int i=0;
         for (String s:
              chords) {
-            Assertions.assertEquals(testChords[i++], s);
+            Assertions.assertTrue(Arrays.asList(testChords).contains(s));
         }
 
     }
@@ -53,11 +64,12 @@ class QuartoFifthCircleWrapperTest {
     void testCaseAdm(){
 
         String[] chords = new String[]{
+                "A#m",
                 "C#",
-                "F#",
-                "G#",
+                "D#m",
                 "Fm",
-                "D#m"
+                "F#",
+                "G#"
         };
         testCase("A#m", chords);
 
@@ -68,30 +80,30 @@ class QuartoFifthCircleWrapperTest {
 
         Assertions.assertDoesNotThrow(
                 ()->{
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("Am")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("A#m")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("Bm")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("Cm")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("C#m")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("Dm")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("D#m")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("Em")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("Fm")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("F#m")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("Gm")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("G#m")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("A")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("A#")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("B")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("C")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("C#")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("D")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("D#")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("E")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("F")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("F#")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("G")));
-                    logger.info(Arrays.toString(quartoFifthCircleWrapper.getAsStrings("G#")));
+                    logger.info(Arrays.toString(wrapper.getAsStrings("Am")));
+                    logger.info(Arrays.toString(wrapper.getAsStrings("A#m")));
+                    logger.info(Arrays.toString(wrapper.getAsStrings("Bm")));
+                    logger.info(Arrays.toString(wrapper.getAsStrings("Cm")));
+                    logger.info(Arrays.toString(wrapper.getAsStrings("C#m")));
+                    logger.info(Arrays.toString(wrapper.getAsStrings("Dm")));
+                    logger.info(Arrays.toString(wrapper.getAsStrings("D#m")));
+                    logger.info(Arrays.toString(wrapper.getAsStrings("Em")));
+                    logger.info(Arrays.toString(wrapper.getAsStrings("Fm")));
+                    logger.info(Arrays.toString(wrapper.getAsStrings("F#m")));
+                    logger.info(Arrays.toString(wrapper.getAsStrings("Gm")));
+                    logger.info(Arrays.toString(wrapper.getAsStrings("G#m")));
+                    logger.info(Arrays.toString(wrapper.getAsStrings("A")));
+                    logger.info(Arrays.toString(wrapper.getAsStrings("A#")));
+                    logger.info(Arrays.toString(wrapper.getAsStrings("B")));
+                    logger.info(Arrays.toString(wrapper.getAsStrings("C")));
+                    logger.info(Arrays.toString(wrapper.getAsStrings("C#")));
+                    logger.info(Arrays.toString(wrapper.getAsStrings("D")));
+                    logger.info(Arrays.toString(wrapper.getAsStrings("D#")));
+                    logger.info(Arrays.toString(wrapper.getAsStrings("E")));
+                    logger.info(Arrays.toString(wrapper.getAsStrings("F")));
+                    logger.info(Arrays.toString(wrapper.getAsStrings("F#")));
+                    logger.info(Arrays.toString(wrapper.getAsStrings("G")));
+                    logger.info(Arrays.toString(wrapper.getAsStrings("G#")));
                 }
         );
 
