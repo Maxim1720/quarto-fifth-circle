@@ -17,8 +17,13 @@ public class Bot extends TelegramLongPollingCommandBot {
 
     @Autowired
     public Bot(IBotCommand[] commands){
+               @Value("${bot.token}") String token,
+               @Value("${bot.username}") String username){
         registerAll(commands);
         registerDefaultAction(new NotCommand());
+
+        this.token = token;
+        this.username = username;
         this.messageLogger = messageLogger;
     }
 
