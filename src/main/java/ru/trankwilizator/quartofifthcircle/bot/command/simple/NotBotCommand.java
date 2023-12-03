@@ -1,4 +1,4 @@
-package ru.trankwilizator.quartofifthcircle.command.simple;
+package ru.trankwilizator.quartofifthcircle.bot.command.simple;
 
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.extensions.bots.commandbot.commands.IBotCommand;
@@ -12,6 +12,7 @@ import java.util.function.BiConsumer;
 
 @Component
 public class NotCommand implements BiConsumer<AbsSender, Message> {
+public class NotBotCommand implements BiConsumer<AbsSender, Message> {
 
     @Override
     public void accept(AbsSender sender, Message message) {
