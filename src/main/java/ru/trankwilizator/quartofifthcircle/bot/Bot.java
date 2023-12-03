@@ -1,6 +1,7 @@
 package ru.trankwilizator.quartofifthcircle.bot;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.support.MessageSourceResourceBundle;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.extensions.bots.commandbot.TelegramLongPollingCommandBot;
@@ -28,19 +29,17 @@ public class Bot extends TelegramLongPollingCommandBot {
         this.messageLogger = messageLogger;
     }
 
+    private final String token;
+    private final String username;
 
     @Override
     public String getBotToken() {
-        return MessageSourceResourceBundle
-                .getBundle("messages")
-                .getString("bot.token");
+        return token;
     }
 
     @Override
     public String getBotUsername() {
-        return MessageSourceResourceBundle
-                .getBundle("messages")
-                .getString("bot.username");
+        return username;
     }
 
     @Override
