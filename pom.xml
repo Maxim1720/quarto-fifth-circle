@@ -15,7 +15,7 @@
     <name>quarto fifth circle</name>
     <description>quarto fifth circle</description>
     <properties>
-        <java.version>17</java.version>
+<!--        <java.version>17</java.version>-->
         <telegram.version>6.0.1</telegram.version>
     </properties>
     <dependencies>
