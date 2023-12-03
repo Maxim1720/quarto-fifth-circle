@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 @Qualifier("melodicScale")
@@ -43,9 +44,8 @@ public class MelodicScale implements Scale {
             scaleCalculator2 = melodicScaleCalculator;
         }
 
-        ArrayList<Notes> notes = new ArrayList<>(Arrays.stream(scaleCalculator1.calculate(chord)).toList());
-
-        List<Notes> notesList = new ArrayList<>(Arrays.stream(scaleCalculator2.calculate(chord)).toList());
+        ArrayList<Notes> notes = Arrays.stream(scaleCalculator1.calculate(tonality)).collect(Collectors.toCollection(ArrayList::new));
+        List<Notes> notesList = Arrays.stream(scaleCalculator2.calculate(tonality)).collect(Collectors.toList());
 
         Collections.reverse(notesList);
 
