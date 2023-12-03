@@ -11,7 +11,7 @@
     <groupId>ru.trankwilizator</groupId>
     <artifactId>quarto-fifth-circle</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+<!--    <packaging>war</packaging>-->
     <name>quarto fifth circle</name>
     <description>quarto fifth circle</description>
     <properties>
