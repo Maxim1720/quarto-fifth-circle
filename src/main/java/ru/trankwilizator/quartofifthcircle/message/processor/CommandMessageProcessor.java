@@ -1,40 +1,27 @@
-package ru.trankwilizator.quartofifthcircle.message;
+package ru.trankwilizator.quartofifthcircle.message.processor;
 
 import org.springframework.context.support.MessageSourceResourceBundle;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.bots.AbsSender;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-import ru.trankwilizator.quartofifthcircle.exception.ChordException;
-import ru.trankwilizator.quartofifthcircle.logic.wrapper.IStrWrapper;
-import ru.trankwilizator.quartofifthcircle.util.StrAnswerBuilder;
+import ru.trankwilizator.quartofifthcircle.exception.TonalityException;
+import ru.trankwilizator.quartofifthcircle.message.processor.command.Command;
 
 
-public class CommandMessageProcessor implements MessageProcessor{
+public class CommandMessageProcessor implements MessageProcessor {
 
-    private final IStrWrapper wrapper;
-    private final StrAnswerBuilder strAnswerBuilder;
-
-    public CommandMessageProcessor(IStrWrapper wrapper,
-                                      StrAnswerBuilder strAnswerBuilder) {
-        this.wrapper = wrapper;
-        this.strAnswerBuilder = strAnswerBuilder;
+    protected Command command;
+    public CommandMessageProcessor(Command command) {
+        this.command = command;
     }
-
-    protected IStrWrapper wrapper(){
-        return wrapper;
-    }
-
-    protected String[] getResultStrings(String tonality){
-        return wrapper().getAsStrings(tonality);
-    }
-
-    public void processMessage(AbsSender absSender, Message message, String[] strings){
+    @Override
+    public final void processMessage(AbsSender absSender, Message message, String[] strings) {
         try {
             checkIsEmptyStrings(strings);
             sendAnswers(strings,message,absSender);
         }
-        catch (ChordException e){
+        catch (TonalityException e){
             tryExecuteSendMessage(absSender,
                     new SendMessage(message
                             .getChat()
@@ -46,19 +33,18 @@ public class CommandMessageProcessor implements MessageProcessor{
 
     private void checkIsEmptyStrings(String[] strings){
         if(strings.length == 0){
-            throw new ChordException(MessageSourceResourceBundle
+            throw new TonalityException(MessageSourceResourceBundle
                     .getBundle("messages")
-                    .getString("bot.chord.error.empty"));
+                    .getString("bot.tonality.error.empty"));
         }
     }
-
     private void sendAnswers(String[] strings, Message message, AbsSender sender){
         for (String chordText :
                 strings) {
             tryExecuteSendMessage(sender,
                     tryGetResultSendMessage(message
-                            .getChat()
-                            .getId().toString(),
+                                    .getChat()
+                                    .getId().toString(),
                             chordText));
         }
     }
@@ -71,17 +57,19 @@ public class CommandMessageProcessor implements MessageProcessor{
             throw new RuntimeException();
         }
     }
-    private SendMessage tryGetResultSendMessage(String chatId, String text){
+    private SendMessage tryGetResultSendMessage(String chatId, String key){
         SendMessage sendMessage;
         try {
-            sendMessage = new SendMessage(chatId,
-                    strAnswerBuilder.build(getResultStrings(text)));
+            sendMessage = new SendMessage(chatId, answer(key));
         }
-        catch (ChordException e){
+        catch (TonalityException e){
             sendMessage = new SendMessage(chatId,
                     e.getMessage());
         }
         return sendMessage;
     }
 
+    protected String answer(String key){
+        return command.execute(key);
+    }
 }

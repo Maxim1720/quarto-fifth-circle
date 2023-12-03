@@ -1,4 +1,4 @@
-package ru.trankwilizator.quartofifthcircle.message;
+package ru.trankwilizator.quartofifthcircle.message.processor;
 
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.bots.AbsSender;
