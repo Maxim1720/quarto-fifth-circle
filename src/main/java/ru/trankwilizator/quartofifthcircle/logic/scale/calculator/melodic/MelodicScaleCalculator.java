@@ -2,7 +2,7 @@ package ru.trankwilizator.quartofifthcircle.logic.scale.calculator.melodic;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
+import ru.trankwilizator.quartofifthcircle.logic.tonality.Tonality;
 import ru.trankwilizator.quartofifthcircle.logic.scale.calculator.ScaleCalculator;
 import ru.trankwilizator.quartofifthcircle.logic.scale.calculator.natural.NaturalScaleCalculator;
 import ru.trankwilizator.quartofifthcircle.util.Fret;
@@ -20,9 +20,9 @@ public class MelodicScaleCalculator implements ScaleCalculator {
     }
 
     @Override
-    public Notes[] calculate(Chord tonicChord) {
-        Notes[] notes = naturalScaleCalculator.calculate(tonicChord);
-        if (tonicChord.getFret().equals(Fret.MINOR)){
+    public Notes[] calculate(Tonality tonality) {
+        Notes[] notes = naturalScaleCalculator.calculate(tonality);
+        if (tonality.getFret().equals(Fret.MINOR)){
             notes[5] = stepUp(notes[5]);
             notes[6] = stepUp(notes[6]);
         }
