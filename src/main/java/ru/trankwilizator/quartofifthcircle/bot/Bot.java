@@ -9,18 +9,19 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-import ru.trankwilizator.quartofifthcircle.bot.log.MessagesLogger;
-import ru.trankwilizator.quartofifthcircle.bot.command.simple.NotCommand;
+import ru.trankwilizator.quartofifthcircle.bot.log.MessageLogger;
+import ru.trankwilizator.quartofifthcircle.bot.command.simple.NotBotCommand;
 
 @Component
 public class Bot extends TelegramLongPollingCommandBot {
-
+    private final MessageLogger messageLogger;
     @Autowired
-    public Bot(IBotCommand[] commands){
+    public Bot(IBotCommand[] commands,
+               MessageLogger messageLogger,
                @Value("${bot.token}") String token,
                @Value("${bot.username}") String username){
         registerAll(commands);
-        registerDefaultAction(new NotCommand());
+        registerDefaultAction(new NotBotCommand(messageLogger));
 
         this.token = token;
         this.username = username;
