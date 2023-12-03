@@ -13,7 +13,7 @@ public class QuartoFifthCircle implements IQuartoFifthCircle {
 
     private final Scale scale;
 
-    public QuartoFifthCircle(@Qualifier("naturalScale") Scale scale) {
+    public QuartoFifthCircle(NaturalScale scale) {
         this.scale = scale;
     }
 
