@@ -3,27 +3,26 @@ package ru.trankwilizator.quartofifthcircle.logic.pentatonic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import ru.trankwilizator.quartofifthcircle.logic.NotesReceiver;
+import ru.trankwilizator.quartofifthcircle.logic.tonality.Tonality;
 import ru.trankwilizator.quartofifthcircle.util.Fret;
 import ru.trankwilizator.quartofifthcircle.util.Notes;
-import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
-import ru.trankwilizator.quartofifthcircle.logic.scale.Scale;
 
 @Service
-public class Pentatonic {
-
+public class Pentatonic implements NotesReceiver {
     public static int NOTES_COUNT = 5;
-    private final Scale scale;
+    private final NotesReceiver scale;
 
     @Autowired
-    public Pentatonic(@Qualifier("naturalScale") Scale scale) {
-        this.scale = scale;
+    public Pentatonic(@Qualifier("naturalScale") NotesReceiver naturalScale) {
+        this.scale = naturalScale;
     }
 
-    public Notes[] getNotes(Chord tonicChord) {
-        Notes[] notes = scale.getNotes(tonicChord);
+    private Notes[] getNotes(Tonality tonality) {
+        Notes[] notes = scale.notes(tonality);
         Notes[] pentatonicNotes = new Notes[NOTES_COUNT];
 
-        int[] skips = skips(tonicChord.getFret());
+        int[] skips = skips(tonality.getFret());
 
         for (int i = 0, k = 0; i < notes.length; i++) {
             boolean can = false;
@@ -52,4 +51,8 @@ public class Pentatonic {
         return skips;
     }
 
+    @Override
+    public Notes[] notes(Tonality tonality) {
+        return getNotes(tonality);
+    }
 }
