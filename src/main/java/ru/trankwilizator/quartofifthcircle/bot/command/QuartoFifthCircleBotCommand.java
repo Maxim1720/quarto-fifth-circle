@@ -1,4 +1,4 @@
-package ru.trankwilizator.quartofifthcircle.command;
+package ru.trankwilizator.quartofifthcircle.bot.command;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.MessageSourceResourceBundle;
