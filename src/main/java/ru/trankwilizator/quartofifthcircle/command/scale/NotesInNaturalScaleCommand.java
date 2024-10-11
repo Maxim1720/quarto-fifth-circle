@@ -19,7 +19,7 @@ public class NotesInNaturalScaleCommand extends Command<Notes> {
     @Override
     public String getCommandIdentifier() {
         return MessageSourceResourceBundle
-                .getBundle("messages")
+                .getBundle("commands")
                 .getString("bot.command.scale.natural");
     }
 

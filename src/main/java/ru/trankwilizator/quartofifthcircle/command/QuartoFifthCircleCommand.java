@@ -16,7 +16,7 @@ public class QuartoFifthCircleCommand extends Command<Chord> {
 
     @Override
     public String getCommandIdentifier() {
-        return MessageSourceResourceBundle.getBundle("messages").getString("bot.command.quartoFifthCircle");
+        return MessageSourceResourceBundle.getBundle("commands").getString("bot.command.quartoFifthCircle");
     }
 
     @Override

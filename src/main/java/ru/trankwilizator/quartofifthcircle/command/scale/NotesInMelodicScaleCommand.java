@@ -19,7 +19,7 @@ public class NotesInMelodicScaleCommand extends CustomScaleCommand<Notes> {
     @Override
     public String getCommandIdentifier() {
         return MessageSourceResourceBundle
-                .getBundle("messages")
+                .getBundle("commands")
                 .getString("bot.command.scale.melodic");
     }
 
