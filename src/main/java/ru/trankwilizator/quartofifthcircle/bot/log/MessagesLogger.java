@@ -17,13 +17,17 @@ public class MessagesLogger {
     static {
         logger = Logger.getLogger(System.Logger.Level.INFO.getName());
         try {
-            FileHandler fileHandler = new FileHandler("src/main/resources/logs.txt", true);
-            logger.addHandler(fileHandler);
-            SimpleFormatter formatter = new SimpleFormatter();
-            fileHandler.setFormatter(formatter);
+            addFileHandler();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private static void addFileHandler() throws IOException {
+        FileHandler fileHandler = new FileHandler("logs.txt", true);
+        SimpleFormatter formatter = new SimpleFormatter();
+        fileHandler.setFormatter(formatter);
+        logger.addHandler(fileHandler);
     }
 
     public static void logMessageReceived(User user, Message message){
