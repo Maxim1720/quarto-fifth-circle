@@ -42,6 +42,7 @@ public class Bot extends TelegramLongPollingCommandBot {
         MessagesLogger.logMessageReceived(update.getMessage().getFrom(), update.getMessage());
         SendMessage sendMessage = tryGetAnswer(update.getMessage());
         sendMessage.setChatId(String.valueOf(update.getMessage().getChatId()));
+        sendMessage.setReplyToMessageId(update.getMessage().getMessageId());
         tryExecute(sendMessage);
     }
 
