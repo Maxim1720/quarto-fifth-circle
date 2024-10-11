@@ -1,20 +1,21 @@
 package ru.trankwilizator.quartofifthcircle.logic.pentatonic;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import ru.trankwilizator.quartofifthcircle.util.Fret;
 import ru.trankwilizator.quartofifthcircle.util.Notes;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
-import ru.trankwilizator.quartofifthcircle.logic.scale.natural.IScale;
+import ru.trankwilizator.quartofifthcircle.logic.scale.Scale;
 
 @Service
 public class Pentatonic {
 
     public static int NOTES_COUNT = 5;
-    private final IScale scale;
+    private final Scale scale;
 
     @Autowired
-    public Pentatonic(IScale scale) {
+    public Pentatonic(@Qualifier("naturalScale") Scale scale) {
         this.scale = scale;
     }
 

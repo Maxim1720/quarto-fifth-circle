@@ -5,16 +5,16 @@ import org.springframework.stereotype.Service;
 import ru.trankwilizator.quartofifthcircle.util.Fret;
 import ru.trankwilizator.quartofifthcircle.util.Notes;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
-import ru.trankwilizator.quartofifthcircle.logic.scale.natural.IScale;
-import ru.trankwilizator.quartofifthcircle.logic.scale.natural.calculate.step.ScalePositioner;
+import ru.trankwilizator.quartofifthcircle.logic.scale.Scale;
+import ru.trankwilizator.quartofifthcircle.logic.scale.calculator.natural.step.ScalePositioner;
 
 @Service
 @Qualifier("quartoFifthCircle")
 public class QuartoFifthCircle implements IQuartoFifthCircle {
 
-    private final IScale scale;
+    private final Scale scale;
 
-    public QuartoFifthCircle(IScale scale) {
+    public QuartoFifthCircle(@Qualifier("naturalScale") Scale scale) {
         this.scale = scale;
     }
 

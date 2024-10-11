@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.slf4j.Logger;
-import ru.trankwilizator.quartofifthcircle.logic.quarto_fifth_circle.wrapper.QuartoFifthCircleWrapper;
+import ru.trankwilizator.quartofifthcircle.logic.wrapper.quartoFifthCircle.QuartoFifthCircleWrapper;
 
 import java.util.Arrays;
 

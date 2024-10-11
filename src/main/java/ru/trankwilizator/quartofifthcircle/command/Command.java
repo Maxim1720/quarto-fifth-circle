@@ -39,7 +39,7 @@ public abstract class Command<T> implements IBotCommand {
             SendMessage sendMessage;
             try {
                 sendMessage = new SendMessage(message.getChat().getId().toString(),
-                        strAnswerBuilder.build(wrapper.getAsStrings(chordText)));
+                        strAnswerBuilder.build(getResultStrings(chordText)));
                 sendMessage.setReplyToMessageId(message.getMessageId());
             }
             catch (ChordException e){
@@ -47,6 +47,14 @@ public abstract class Command<T> implements IBotCommand {
             }
             tryExecuteSendMessage(sender,sendMessage);
         }
+    }
+
+    protected StrWrapper<T> wrapper(){
+        return wrapper;
+    }
+
+    protected String[] getResultStrings(String tonality){
+        return wrapper().getAsStrings(tonality);
     }
 
     private void checkIsEmptyStrings(String[] strings){

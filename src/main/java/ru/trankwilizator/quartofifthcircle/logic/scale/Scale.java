@@ -1,8 +1,8 @@
-package ru.trankwilizator.quartofifthcircle.logic.scale.natural;
+package ru.trankwilizator.quartofifthcircle.logic.scale;
 
 import ru.trankwilizator.quartofifthcircle.util.Notes;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
 
-public interface IScale {
+public interface Scale {
     Notes[] getNotes(Chord chord);
 }

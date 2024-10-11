@@ -5,7 +5,7 @@ import org.springframework.context.support.MessageSourceResourceBundle;
 import org.springframework.stereotype.Component;
 import ru.trankwilizator.quartofifthcircle.util.StrAnswerBuilder;
 import ru.trankwilizator.quartofifthcircle.util.Notes;
-import ru.trankwilizator.quartofifthcircle.logic.StrWrapper;
+import ru.trankwilizator.quartofifthcircle.logic.wrapper.StrWrapper;
 
 @Component
 public class PentatonicCommand extends Command<Notes> {

@@ -1,14 +1,15 @@
-package ru.trankwilizator.quartofifthcircle.logic.scale.natural.calculate;
+package ru.trankwilizator.quartofifthcircle.logic.scale.calculator.natural;
 
 import org.springframework.stereotype.Component;
+import ru.trankwilizator.quartofifthcircle.logic.scale.calculator.ScaleCalculator;
 import ru.trankwilizator.quartofifthcircle.util.NotePositionCorrector;
 import ru.trankwilizator.quartofifthcircle.util.Notes;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
-import ru.trankwilizator.quartofifthcircle.logic.scale.natural.calculate.step.ScalePositioner;
-import ru.trankwilizator.quartofifthcircle.logic.scale.natural.calculate.util.ScaleCalculateStrategy;
+import ru.trankwilizator.quartofifthcircle.logic.scale.calculator.natural.step.ScalePositioner;
+import ru.trankwilizator.quartofifthcircle.logic.scale.calculator.natural.util.ScaleCalculateStrategy;
 
 @Component
-public class ScaleCalculator implements IScaleCalculator {
+public class NaturalScaleCalculator implements ScaleCalculator {
     public Notes[] calculate(Chord tonicChord) {
         Notes[] notes = new Notes[ScalePositioner.NOTES_COUNT];
         int[] steps = ScaleCalculateStrategy.getByFret(tonicChord.getFret()).getPositions();

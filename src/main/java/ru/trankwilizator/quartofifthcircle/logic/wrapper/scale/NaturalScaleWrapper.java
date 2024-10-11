@@ -1,21 +1,22 @@
-package ru.trankwilizator.quartofifthcircle.logic.scale.natural.wrapper;
+package ru.trankwilizator.quartofifthcircle.logic.wrapper.scale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import ru.trankwilizator.quartofifthcircle.logic.scale.natural.NaturalScale;
 import ru.trankwilizator.quartofifthcircle.util.Notes;
-import ru.trankwilizator.quartofifthcircle.logic.StrWrapper;
+import ru.trankwilizator.quartofifthcircle.logic.wrapper.StrWrapper;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
 import ru.trankwilizator.quartofifthcircle.logic.chord.converter.ChordConverter;
-import ru.trankwilizator.quartofifthcircle.logic.scale.natural.IScale;
+import ru.trankwilizator.quartofifthcircle.logic.scale.Scale;
 
 @Component
-@Qualifier("notesWrapper")
-public class NotesWrapper extends StrWrapper<Notes> {
+@Qualifier("naturalScaleWrapper")
+public class NaturalScaleWrapper extends StrWrapper<Notes> {
 
-    private final IScale scale;
+    private final Scale scale;
     @Autowired
-    protected NotesWrapper(ChordConverter chordConverter, IScale scale) {
+    protected NaturalScaleWrapper(ChordConverter chordConverter, NaturalScale scale) {
         super(chordConverter);
         this.scale = scale;
     }

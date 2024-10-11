@@ -1,10 +1,10 @@
-package ru.trankwilizator.quartofifthcircle.logic.scale.natural.calculate;
+package ru.trankwilizator.quartofifthcircle.logic.scale.calculator;
 
 
 import ru.trankwilizator.quartofifthcircle.util.Notes;
 import ru.trankwilizator.quartofifthcircle.logic.chord.Chord;
 
-public interface IScaleCalculator {
+public interface ScaleCalculator {
 
     Notes[] calculate(Chord tonicChord);
 }
