@@ -28,23 +28,22 @@ public abstract class Command<T> implements IBotCommand {
             sendAnswers(strings,message,absSender);
         }
         catch (ChordException e){
-            sendMessage = new SendMessage(message.getChat().getId().toString(),
-                    e.getMessage());
+            sendMessage = new SendMessage(message.getChat().getId().toString(), e.getMessage());
+            sendMessage.setReplyToMessageId(message.getMessageId());
             tryExecuteSendMessage(absSender,sendMessage);
         }
     }
 
     private void sendAnswers(String[] strings, Message message, AbsSender sender){
-        for (String chordText :
-                strings) {
+        for (String chordText : strings) {
             SendMessage sendMessage;
             try {
                 sendMessage = new SendMessage(message.getChat().getId().toString(),
                         strAnswerBuilder.build(wrapper.getAsStrings(chordText)));
+                sendMessage.setReplyToMessageId(message.getMessageId());
             }
             catch (ChordException e){
-                sendMessage = new SendMessage(message.getChat().getId().toString(),
-                        e.getMessage());
+                sendMessage = new SendMessage(message.getChat().getId().toString(), e.getMessage());
             }
             tryExecuteSendMessage(sender,sendMessage);
         }
