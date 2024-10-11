@@ -8,7 +8,7 @@ import org.telegram.telegrambots.meta.bots.AbsSender;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import ru.trankwilizator.quartofifthcircle.util.StrAnswerBuilder;
 import ru.trankwilizator.quartofifthcircle.exception.ChordException;
-import ru.trankwilizator.quartofifthcircle.logic.StrWrapper;
+import ru.trankwilizator.quartofifthcircle.logic.wrapper.StrWrapper;
 
 public abstract class Command<T> implements IBotCommand {
     private final StrWrapper<T> wrapper;
