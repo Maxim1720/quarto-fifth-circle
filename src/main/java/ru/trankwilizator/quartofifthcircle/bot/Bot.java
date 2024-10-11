@@ -16,6 +16,10 @@ import ru.trankwilizator.quartofifthcircle.command.NotCommand;
 @Component
 public class Bot extends TelegramLongPollingCommandBot {
 
+    @Value("${bot.token}")
+    private String botToken;
+    @Value("${bot.username}")
+    private String botName;
     @Autowired
     public Bot(IBotCommand[] commands){
         registerAll(commands);
@@ -25,16 +29,12 @@ public class Bot extends TelegramLongPollingCommandBot {
 
     @Override
     public String getBotToken() {
-        return MessageSourceResourceBundle
-                .getBundle("messages")
-                .getString("bot.token");
+        return botToken;
     }
 
     @Override
     public String getBotUsername() {
-        return MessageSourceResourceBundle
-                .getBundle("messages")
-                .getString("bot.username");
+        return botName;
     }
 
     @Override
